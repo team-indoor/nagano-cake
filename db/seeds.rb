@@ -12,3 +12,7 @@ Admin.create!(
   password:"admin1",
   password_confirmation:"admin1"
 )
+
+Category.create!{
+  [{name: "ケーキ"},{name: "プリン"},{name:,"焼き菓子"},{name:,"ゼリー"}]
+}

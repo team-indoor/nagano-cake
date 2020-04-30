@@ -11,13 +11,14 @@ Rails.application.routes.draw do
     registrations: "members/registrations"
   }
   namespace :admins do
-    get '/home', to: "home#top"
+    get '/', to: "home#top"
     resources :members, only:[:index, :show, :edit, :update]
     resources :products, except:[:destroy]
     resources :orders, only:[:index, :show, :update]
     resources :order_details, only:[:update]
     resources :categories, only:[:index, :create, :edit, :update]
   end
+  resources :products, only:[:index, :show]
   resources :members, only:[:show, :edit, :update, :destroy] do
     member do
       get "delete"
