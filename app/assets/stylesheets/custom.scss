@@ -1,0 +1,36 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// 設定用
+.border-top{
+  border-top: solid 3px #eee;
+}
+.border-bottom{
+  border-bottom: solid 3px #eee;
+}
+
+
+header{
+  height:100px;
+  background-color:white;
+}
+#body{
+  padding-top:130px;
+  min-height: 650px;
+}
+.logo-box{
+  display:inline-block;
+}
+.header-link{
+  padding:23px 15px;
+}
+
+
+/* footer */
+footer{
+  height:100px;
+  text-align: center;
+  p{
+    line-height:100px;
+  }
+}
