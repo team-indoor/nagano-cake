@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   root 'home#top'
+  devise_for :admins, controllers:{
+    sessions: "admins/sessions",
+    passwords: "admins/passwords",
+    registrations: "admins/registrations"
+  }
+  devise_for :members, controllers:{
+    sessions: "members/sessions",
+    passwords: "members/passwords",
+    registrations: "members/registrations"
+  }
   namespace :admins do
     get '/home', to: "home#top"
     resources :members, only:[:index, :show, :edit, :update]
@@ -21,15 +31,5 @@ Rails.application.routes.draw do
     end
     resources :addresses, only:[:index, :create, :edit, :update, :destroy]
   end
-  devise_for :admins, controllers:{
-    sessions: "admins/sessions",
-    passwords: "admins/passwords",
-    registrations: "admins/registrations"
-  }
-  devise_for :members, controllers:{
-    sessions: "members/sessions",
-    passwords: "members/passwords",
-    registrations: "members/registrations"
-  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

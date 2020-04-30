@@ -1,25 +1,68 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <p style="display:inline;">名前</p>
+    <%= f.label :last_name, '(姓)' %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    <%= f.label :first_name, '(名)' %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <p style="display:inline;">フリガナ</p>
+    <%= f.label :kana_last_name, '(セイ)' %>
+    <%= f.text_field :kana_last_name, autofocus: true, autocomplete: "kana_last_name" %>
+    <%= f.label :kana_first_name, '(メイ)' %>
+    <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "kana_first_name" %>
+  </div>
+
+  <div class="field">
+    <p style="display:inline;">メールアドレス</p>
+    <% f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <p style="display:inline;">郵便番号(ハイフンなし)</p>
+    <% f.label :postal_code %>
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+  </div>
+
+  <div class="field">
+    <p style="display:inline;">住所</p>
+    <% f.label :address %>
+    <%= f.text_field :address, :size=>"60", autofocus: true, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <p style="display:inline;">電話番号(ハイフンなし)</p>
+    <% f.label :phone_number %>
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+  </div>
+
+  <div class="field">
+    <p style="display:inline;">パスワード</p>
+    <% f.label :password %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <p style="display:inline;">パスワード確認</p>
+    <% f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>
@@ -27,3 +70,6 @@
 <% end %>
 
 <%= render "members/shared/links" %>
+
+</body>
+</html>

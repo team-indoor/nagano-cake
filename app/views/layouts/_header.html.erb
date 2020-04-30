@@ -5,24 +5,24 @@
     </a>
     <% if member_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
-        <li>ようこそ、<%= current_member.name %>さん！</li>
-        <li><%= link_to "マイページ" member_path(current_member), class: "btn btn-default" %></li>
-        <li><%= link_to "商品一覧", members_products_path, class: "btn btn-default" %></li>
-        <li><%= link_to "カート", members_cart_items_path, class: "btn btn-default" %></li>
-        <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-default" %></li>
+        <li>ようこそ、<%= current_member.last_name %>さん！</li>
+        <li><%= link_to "マイページ", "#" , class: "btn btn-default" %></li>
+        <li><%= link_to "商品一覧", "#" , class: "btn btn-default" %></li>
+        <li><%= link_to "カート", "#" , class: "btn btn-default" %></li>
+        <li><%= link_to "ログアウト", destroy_member_session_path , method: :delete, class: "btn btn-default" %></li>
       </ul>
     <% elsif admin_signed_in? %>
       <ul class="nav navbar-nav navber-right">
-        <li><%= link_to "商品一覧", admins_products_path, class: "btn btn-default" %></li>
-        <li><%= link_to "会員一覧", admins_members_path, class: "btn btn-default" %></li>
-        <li><%= link_to "注文履歴一覧", admins_orders_path, class: "btn btn-default" %></li>
-        <li><%= link_to "ジャンル一覧", admins_categories_path, class: "btn btn-default" %></li>
+        <li><%= link_to "商品一覧", "#" , class: "btn btn-default" %></li>
+        <li><%= link_to "会員一覧", "#" , class: "btn btn-default" %></li>
+        <li><%= link_to "注文履歴一覧", "#" , class: "btn btn-default" %></li>
+        <li><%= link_to "ジャンル一覧", "#" , class: "btn btn-default" %></li>
       </ul>
     <% else %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "商品一覧", members_products_path, class: "btn btn-default" %></li>
-        <li><%= link_to "新規登録", new_member_registraion_path, class: "btn btn-default" %></li>
-        <li><%= link_to "ログイン", new_member_session_path, class: "btn btn-default" %></li>
+        <li><%= link_to "商品一覧", "#" , class: "btn btn-default" %></li>
+        <li><%= link_to "新規登録", "#" , class: "btn btn-default" %></li>
+        <li><%= link_to "ログイン", "#" , class: "btn btn-default" %></li>
       </ul>
     <% end %>
   </nav>
