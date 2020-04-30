@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_024749) do
     t.string "phone_number", null: false
     t.string "postal_code", null: false
     t.string "address", null: false
-    t.boolean "is_active", default: true
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
