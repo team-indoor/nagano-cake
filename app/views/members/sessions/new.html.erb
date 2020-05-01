@@ -6,8 +6,8 @@
       <mark>会員の方はこちらからログイン</mark>
     </div>
 
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <table class="table table-borderless">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <tr>
         <div class="field">
           <th>メールアドレス</th>
@@ -32,12 +32,11 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "ログイン", class:"btn btn-primary col-xs-4" %>
+      <%= f.submit "ログイン", class:"btn btn-primary" %>
     </div>
     <% end %>
 
-
-    <div class="log_in_page">
+    <div class="sign_up_page">
       <mark>登録がお済みでない方</mark>
       <p><%= render "members/shared/links" %>から新規登録を行ってください。</p>
     </div>

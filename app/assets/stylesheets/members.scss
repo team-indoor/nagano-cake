@@ -8,10 +8,16 @@ mark {
   padding: 0 20px;
 }
 
-.log_in_page{
+.sign_in_page,.sign_up_page{
   margin-top: 80px;
 }
 
-.sign_up{
+.sign_up,.sign_in{
   margin-bottom: 30px;
+}
+
+.product-title{
+  font-size: 25px;
+  margin-bottom: 0;
+  text-align: left;
 }
