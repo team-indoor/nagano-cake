@@ -1,2 +1,41 @@
-<h1>Admins::Members#show</h1>
-<p>Find me in app/views/admins/members/show.html.erb</p>
+<h3><p>@member.last_name</p><p>@member.first_name</p>さんの会員詳細</h3>
+
+<div class="row">
+<div class="col-xs-8 col-xs-offset-2">
+
+<table>
+	<tr>
+		<th>顧客ID</th>
+		<td><span>@member.id</span><span>@member.is_active</span></td>
+	</tr>
+	<tr>
+		<th>氏名</th>
+		<td><span>@member.last_name</span><span>@member.first_name</span></td>
+	</tr>
+	<tr>
+		<th>フリガナ</th>
+		<td><span>@member.kana_last_name</span><span>@member.kana_first_name</span></td>
+	</tr>
+	<tr>
+		<th>郵便番号</th>
+		<td>@member.postal_code</td>
+	</tr>
+	<tr>
+		<th>住所</th>
+		<td>@member.address</td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td>@member.phone_number</td>
+	</tr>
+	<tr>
+		<th>メールアドレス</th>
+		<td>@member.email</td>
+	</tr>
+</table>
+
+<a class="btn btn-lg" href="edit_admins_member_path" role="button">編集する</a>
+<a class="btn btn-lg" href="" role="button">注文履歴一覧を見る</a>
+
+</div>
+</div>

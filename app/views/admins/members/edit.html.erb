@@ -1,2 +1,56 @@
-<h1>Admins::Members#edit</h1>
-<p>Find me in app/views/admins/members/edit.html.erb</p>
+<h3><p>@member.last_name</p><p>@member.first_name</p>さんの会員情報編集</h3>
+
+<div class="row">
+<div class="col-xs-8 col-xs-offset-2">
+
+	<%= form_for(@member) do |f| %>
+
+	<table>
+    <tr>
+	<th><h4>会員ID</h4></th>
+  　<td>member.id</td>
+    </tr>
+
+  <tr>
+  <th><h4>氏名</h4></th>
+  <td><%= f.text_field :last_name %><%= f.text_field :first_name %></td>
+  </tr> 
+ 
+  <tr>
+  <th><h4>フリガナ</h4></th>
+  <td><%= f.text_field :kana_last_name %><%= f.text_field :kana_first_name %></td>
+  </tr> 
+
+  <tr>
+  <th><h4>郵便番号</h4></th>
+  <td><%= text_field :postal_code %></td>
+  </tr> 
+
+  <tr>
+  <th><h4>住所</h4></th>
+  <td><%= text_area :address %></td>
+  </tr> 
+
+  <tr>
+  <th><h4>電話番号</h4></th>
+  <td><%= text_field :phone_number %></td>
+  </tr> 
+
+  <tr>
+  <th><h4>メールアドレス</h4></th>
+  <td><%= text_field :email %></td>
+  </tr> 
+
+  <tr>
+  <th><h4>会員ステータス</h4></th>
+  <td><label><%= f.radio_button :is_active, "有効" %>有効</label><label><%= f.radio_button :is_active, "退会済み" %>退会済み</label></td>
+  </tr> 
+
+</table>
+ 
+  <%= f.submit '変更を保存する' %>
+ 
+<% end %>
+
+</div>
+</div>
