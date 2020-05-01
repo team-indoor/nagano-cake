@@ -4,10 +4,10 @@ class Admins::MembersController < ApplicationController
   end
 
   def show
-  	@members = Member.all
+  	@member = Member.find(params[:id])
   end
 
   def edit
-  	@members = Member.all
+  	@member = Member.find(params[:id])
   end
 end
