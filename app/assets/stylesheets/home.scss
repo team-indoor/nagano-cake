@@ -1,3 +1,50 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.c-search{
+  border-bottom: 1px solid ;
+}
+
+.c-name{
+  margin: 10px;
+}
+
+.category{
+  width: auto;
+  text-align: center;
+  border: 1px solid ;
+}
+
+.mv-image{
+  width: 100%;
+  padding: 70px;
+  background-image: url(mv.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.description{
+  background-color: rgba( 0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+}
+
+.p-image{
+  width: 200px;
+  height: 140px;
+  border: 1px solid ;
+}
+
+.product{
+  width: 220px;
+  padding: 10px;
+  margin-left: 10px;
+  border: 1px solid ;
+  float: left;
+  margin-bottom: 50px;
+}
+
+.see-more{
+  float: right;
+}

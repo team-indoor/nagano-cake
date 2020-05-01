@@ -6,7 +6,7 @@
     </div>
     <% if member_signed_in? %>
       <ul class="nav navbar-right">
-        <li>ようこそ、<%= current_member.name %>さん！</li>
+        <li>ようこそ、<%= current_member.last_name %>さん！</li>
         <li class="header-link"><%= link_to "マイページ", member_path(current_member), class: "btn btn-default" %></li>
         <li class="header-link"><%= link_to "商品一覧", products_path, class: "btn btn-default" %></li>
         <li class="header-link"><%= link_to "カート", member_cart_items_path, class: "btn btn-default" %></li>
