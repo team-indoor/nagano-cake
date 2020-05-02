@@ -15,7 +15,7 @@
 	    <tbody>
 	    	<tr>
 	    		<td>member.id</td>
-	    		<td><span>member.last_name</span><span>member.first_name</span></td>
+	    		<td><%=link_to member.last_name member.first_name, admins_member_path(member.id) %></td>
 	    		<td>member.email</td>
 	    		<td>member.is_active</td>
 	    	</tr>

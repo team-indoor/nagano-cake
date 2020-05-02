@@ -1,4 +1,4 @@
-<h3><p>@member.last_name</p><p>@member.first_name</p>さんの会員情報編集</h3>
+<h3>@member.last_name @member.first_nameさんの会員情報編集</h3>
 
 <div class="row">
 <div class="col-xs-8 col-xs-offset-2">
@@ -7,43 +7,43 @@
 
 	<table>
     <tr>
-	<th><h4>会員ID</h4></th>
+	<th>会員ID</th>
   　<td>member.id</td>
     </tr>
 
   <tr>
-  <th><h4>氏名</h4></th>
+  <th>氏名</th>
   <td><%= f.text_field :last_name %><%= f.text_field :first_name %></td>
   </tr> 
  
   <tr>
-  <th><h4>フリガナ</h4></th>
+  <th>フリガナ</th>
   <td><%= f.text_field :kana_last_name %><%= f.text_field :kana_first_name %></td>
   </tr> 
 
   <tr>
-  <th><h4>郵便番号</h4></th>
+  <th>郵便番号</th>
   <td><%= text_field :postal_code %></td>
   </tr> 
 
   <tr>
-  <th><h4>住所</h4></th>
+  <th>住所</th>
   <td><%= text_area :address %></td>
   </tr> 
 
   <tr>
-  <th><h4>電話番号</h4></th>
+  <th>電話番号</th>
   <td><%= text_field :phone_number %></td>
   </tr> 
 
   <tr>
-  <th><h4>メールアドレス</h4></th>
+  <th>メールアドレス</th>
   <td><%= text_field :email %></td>
   </tr> 
 
   <tr>
-  <th><h4>会員ステータス</h4></th>
-  <td><label><%= f.radio_button :is_active, "有効" %>有効</label><label><%= f.radio_button :is_active, "退会済み" %>退会済み</label></td>
+  <th>会員ステータス</th>
+  <td><label><%= f.radio_button :is_active, :true %>有効</label><label><%= f.radio_button :is_active, :false %>退会済み</label></td>
   </tr> 
 
 </table>

@@ -10,4 +10,9 @@ class Admins::MembersController < ApplicationController
   def edit
   	@member = Member.find(params[:id])
   end
+
+  def update
+  	@member = Member.find(params[:id])
+  	
+  end
 end

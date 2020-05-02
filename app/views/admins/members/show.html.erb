@@ -1,4 +1,4 @@
-<h3><p>@member.last_name</p><p>@member.first_name</p>さんの会員詳細</h3>
+<h3>@member.last_name @member.first_nameさんの会員詳細</h3>
 
 <div class="row">
 <div class="col-xs-8 col-xs-offset-2">
@@ -6,7 +6,7 @@
 <table>
 	<tr>
 		<th>顧客ID</th>
-		<td><span>@member.id</span><span>@member.is_active</span></td>
+		<td>@member.id<button type="button" class="btn btn-primary mt-1">@member.is_active</button></td>
 	</tr>
 	<tr>
 		<th>氏名</th>
@@ -35,7 +35,7 @@
 </table>
 
 <a class="btn btn-lg" href="edit_admins_member_path" role="button">編集する</a>
-<a class="btn btn-lg" href="" role="button">注文履歴一覧を見る</a>
+<a class="btn btn-lg" href="admins_orders_path" role="button">注文履歴一覧を見る</a>
 
 </div>
 </div>
