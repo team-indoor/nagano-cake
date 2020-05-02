@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//sign-up or sign-in
 mark {
   background-color: #f5f5f5;
   font-size: 18px;
@@ -16,8 +17,13 @@ mark {
   margin-bottom: 30px;
 }
 
+//product
 .product-title{
   font-size: 25px;
   margin-bottom: 0;
   text-align: left;
+}
+
+.paginate{
+  float: left;
 }
