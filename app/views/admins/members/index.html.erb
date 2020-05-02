@@ -14,10 +14,10 @@
 	    <% @members.each do |member| %>
 	    <tbody>
 	    	<tr>
-	    		<td>member.id</td>
+	    		<td><%= member.id %></td>
 	    		<td><%=link_to member.last_name member.first_name, admins_member_path(member.id) %></td>
-	    		<td>member.email</td>
-	    		<td>member.is_active</td>
+	    		<td><%= member.email %></td>
+	    		<td><%= member.is_active %></td>
 	    	</tr>
 	    <% end %>
 	    </tbody>
