@@ -17,4 +17,14 @@
     <%= render "layouts/footer" %>
     <%= debug(params) if Rails.env.development? %>
   </body>
+
+  <script>
+    window.setTimeout(function() {
+      $(".alert").slideUp();
+    }, 3000);
+    //jQueryの記述
+    $(function(){
+      
+    });
+  </script>
 </html>

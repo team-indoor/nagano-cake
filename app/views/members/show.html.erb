@@ -1,33 +1,43 @@
 <h3>マイページ</h3>
 
-<h3>登録情報</h3><%= link_to "編集する", edit_member_path, class: 'btn btn-default' %><%= link_to "パスワードを変更する", edit_member_password_path, class: 'btn btn-default' %>
+<p>登録情報</p>
+  <%= link_to "編集する", edit_member_path, class: 'btn btn-primary' %>
+  <%= link_to "パスワードを変更する", new_member_password_path, class: 'btn btn-primary' %>
 
 <table>
   <tr>
     <th>氏名</th>
-    <td><span>@member.last_name</span><span>@member.first_name</span></td>
+    <td>
+      <%= @member.last_name %>
+      <%= @member.first_name %>
+    </td>
   </tr>
-    <tr>
+  <tr>
     <th>カナ</th>
-    <td><span>@member.kana_last_name</span><span>@member.kana_first_name</span></td>
+    <td>
+      <%= @member.kana_last_name %>
+      <%= @member.kana_first_name %>
+    </td>
   </tr>  
   <tr>
     <th>郵便番号</th>
-    <td>@member.postal_code</td>
+    <td><%= @member.postal_code %></td>
   </tr>
   <tr>
     <th>住所</th>
-    <td>@member.address</td>
+    <td><%= @member.address %></td>
   </tr>
   <tr>
     <th>電話番号</th>
-    <td>@member.phone_number</td>
+    <td><%= @member.phone_number %></td>
   </tr>
   <tr>
     <th>メールアドレス</th>
-    <td>@member.email</td>
+    <td><%= @member.email %></td>
   </tr>
 </table>
 
-<h3>配送先</h3><%= link_to "一覧を見る", member_addresses_path, class: 'btn btn-default' %>
-<h3>注文履歴</h3><%= link_to "一覧を見る", member_orders_path, class: 'btn btn-default' %>
+<p>配送先</p>
+<%= link_to "一覧を見る", "/members/#{@member.id}/addresses", class: 'btn btn-primary' %><br>
+<p>注文履歴</p>
+<%= link_to "一覧を見る", "/members/#{@member.id}/orders", class: 'btn btn-primary' %>
