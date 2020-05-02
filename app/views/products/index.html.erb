@@ -4,72 +4,29 @@
       <div class="c-search">
         <h4>ジャンル検索</h4>
       </div>
-      <!--eachを使用予定-->
+      <% @categories.each do |category| %>
       <div class="c-name">
-        <p>ジャンル名</p>
+        <p><%= link_to category.name, products_path(category.id) %></p>
       </div>
-      <div class="c-name">
-        <p>ジャンル名</p>
-      </div>
-      <div class="c-name">
-        <p>ジャンル名</p>
-      </div>
-      <div class="c-name">
-        <p>ジャンル名</p>
-      </div>
-      <div class="c-name">
-        <p>ジャンル名</p>
-      </div>
-      <!--eachを使用予定-->
+      <% end %>
     </div>
   </div>
 
   <div class="col-xs-10">
     <h2 class="product-title" style="margin-top:0;">商品一覧(全x件)</h2><br>
     <!--eachを使用予定-->
+    <% @products.each do |product| %>
     <div class="product">
-      <div class="p-image"></div>
-      <%= link_to "商品名", "#" %>
-      <p>¥0,000</p>
+      <div class="p-image">
+        <img src="menus/no_image.jpg" alt="商品名">
+        <!-- attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg", size:'150x150' -->
+      </div>
+      <%= link_to product.name, "#" %><br>
+      <%= "¥#{product.price}" %>
     </div>
-    <div class="product">
-      <div class="p-image"></div>
-      <%= link_to "商品名", "#" %>
-      <p>¥0,000</p>
-    </div>
-    <div class="product">
-      <div class="p-image"></div>
-      <%= link_to "商品名", "#" %>
-      <p>¥0,000</p>
-    </div>
-    <div class="product">
-      <div class="p-image"></div>
-      <%= link_to "商品名", "#" %>
-      <p>¥0,000</p>
-    </div>
-    <div class="product">
-      <div class="p-image"></div>
-      <%= link_to "商品名", "#" %>
-      <p>¥0,000</p>
-    </div>
-    <div class="product">
-      <div class="p-image"></div>
-      <%= link_to "商品名", "#" %>
-      <p>¥0,000</p>
-    </div>
-    <div class="product">
-      <div class="p-image"></div>
-      <%= link_to "商品名", "#" %>
-      <p>¥0,000</p>
-    </div>
-    <div class="product">
-      <div class="p-image"></div>
-      <%= link_to "商品名", "#" %>
-      <p>¥0,000</p>
-    </div>
+    <% end %>
     <!--eachを使用予定-->
     <div class="paginate">
-      <p><< 1 2 3 4 5 >></p>
     </div>
   </div>
 </div>
