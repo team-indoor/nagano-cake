@@ -1,20 +1,37 @@
 <div class="row">
 <div class="col-xs-8 col-xs-offset-2">
 
-<h3><%= @member.last_name %> <%= @member.first_name %>さんの会員詳細</h3>
+  <h3>
+	<%= @member.last_name %>
+	<%= @member.first_name %>
+    さんの会員詳細
+  </h3>
 
 <table>
 	<tr>
 		<th>顧客ID</th>
-		<td><%= @member.id %> <%= @member.is_active %></td>
+		<td>
+			<%= @member.id %>
+			<% if @member.is_active == true %>
+			<p>有効</p>
+	        <% else %>
+	    	<p>退会済</p>
+	    	<% end %>
+		</td>
 	</tr>
 	<tr>
 		<th>氏名</th>
-		<td><%= @member.last_name %> <%= @member.first_name %></td>
+		<td>
+			<%= @member.last_name %>
+			<%= @member.first_name %>
+		</td>
 	</tr>
 	<tr>
 		<th>フリガナ</th>
-		<td><%= @member.kana_last_name %> <%= @member.kana_first_name %></td>
+		<td>
+			<%= @member.kana_last_name %>
+			<%= @member.kana_first_name %>	
+		</td>
 	</tr>
 	<tr>
 		<th>郵便番号</th>

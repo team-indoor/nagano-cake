@@ -1,2 +1,25 @@
-<h1>Admins::Products#new</h1>
-<p>Find me in app/views/admins/products/new.html.erb</p>
+<div class="row">
+  <h1>商品登録</h1>
+  <%= form_for (@product) do |f| %>
+    <div class="col-md-5 col-md-offset-1">
+      <div class="image-form">
+        <div class="image-box"></div>
+        <%= f.attachment_field :image %>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form_control" %>
+      </div>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form_control" %>
+      </div>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form_control" %>
+      </div>
+    </div>
+  <% end %>
+</div>
