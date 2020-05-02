@@ -1,2 +1,5 @@
-<h1>Admins::Home#top</h1>
-<p>Find me in app/views/admins/home/top.html.erb</p>
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="order-count">本日の注文数　<%= link_to @orders.count, admins_orders_path, class:"order-count" %>　件</h1>
+  </div>
+</div>
