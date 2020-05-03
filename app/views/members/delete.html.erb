@@ -1,7 +1,8 @@
 <p>本当に退会しますか？</p><br><br>
 
-<p>退会すると、会員登録情報や</p><br>
-<p>これまでの購入履歴が閲覧できなくなります。</p><br>
-<p>退会する場合は、「退会する」をクリックしてください。</p><br><br>
+<p>退会すると、会員登録情報や<br>
+これまでの購入履歴が閲覧できなくなります。<br>
+退会する場合は、「退会する」をクリックしてください。</p><br><br>
 
-<%= link_to "退会しない", member_path, class: 'btn btn-default' %><%= link_to "退会する", root_path, class: 'btn btn-danger' %>
+<%= link_to "退会しない", member_path, class: 'btn btn-default' %>
+<%= link_to "退会する", member_path, method: :patch, "data-confirm" => "Are you sure？", class: 'btn btn-danger' %>
