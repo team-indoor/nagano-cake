@@ -1,10 +1,12 @@
 class Admins::ProductsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @products = Product.all
   end
 
   def show
-    @produst = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -12,9 +14,9 @@ class Admins::ProductsController < ApplicationController
   end
 
   def create
-    product =  Product.new(product_params)
-    if product.save
-      redirect_to admins_product_path(product)
+    @product =  Product.create!(product_params)
+    if @product
+      redirect_to admins_product_path(@product)
     else
       render :new
     end
@@ -35,6 +37,6 @@ class Admins::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :price, :image_id, :introduction, :is_saling)
+    params.require(:product).permit(:name, :price, :image, :category_id, :introduction, :is_saling)
   end
 end
