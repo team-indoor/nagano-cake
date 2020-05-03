@@ -10,7 +10,7 @@ class MembersController < ApplicationController
   def update
     @member =Member.find(params[:id])
     if @member.update(member_params)
-    redirect_to member_path(@member.id)
+    redirect_to action: :show
   else
     @member =Member.find(params[:id])
     render action: :edit
@@ -18,7 +18,7 @@ class MembersController < ApplicationController
 
   def destroy
     @member = Member.find(params[:id])
-    @member.
+    @member.destroy
     redirect_to root_path
   end
 end

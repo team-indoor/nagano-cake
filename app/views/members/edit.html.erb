@@ -2,42 +2,48 @@
 
 <%= form_for @member, url: "/members/#{@member.id}" do |f| %>
 
-	<table>
+  <table>
 
-  <tr>
-  <th>名前</th>
-  <td>（姓）<%= f.text_field :last_name %>（名）<%= f.text_field :first_name %></td>
-  </tr> 
+    <tr>
+      <th>名前</th>
+      <td>
+        （姓）<%= f.text_field :last_name %>
+        （名）<%= f.text_field :first_name %>
+      </td>
+    </tr> 
+   
+    <tr>
+      <th>フリガナ</th>
+      <td>
+        （セイ）<%= f.text_field :kana_last_name %>
+        （メイ）<%= f.text_field :kana_first_name %>
+      </td>
+    </tr> 
+
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= f.text_field :email %></td>
+    </tr> 
+
+    <tr>
+      <th>郵便番号（ハイフンなし）</th>
+      <td><%= f.text_field :postal_code %></td>
+    </tr> 
+
+    <tr>
+      <th>住所</th>
+      <td><%= f.text_area :address %></td>
+    </tr> 
+  
+    <tr>
+      <th>電話番号（ハイフンなし）</th>
+      <td><%= f.text_field :phone_number %></td>
+    </tr> 
+
+  </table>
  
-  <tr>
-  <th>フリガナ</th>
-  <td>（セイ）<%= f.text_field :kana_last_name %>（メイ）<%= f.text_field :kana_first_name %></td>
-  </tr> 
+    <%= f.submit('編集内容を保存する',class: 'btn btn-primary') %>
 
-  <tr>
-  <th>メールアドレス</th>
-  <td><%= f.text_field :email %></td>
-  </tr> 
-
-  <tr>
-  <th>郵便番号（ハイフンなし）</th>
-  <td><%= f.text_field :postal_code %></td>
-  </tr> 
-
-  <tr>
-  <th>住所</th>
-  <td><%= f.text_area :address %></td>
-  </tr> 
-
-  <tr>
-  <th>電話番号（ハイフンなし）</th>
-  <td><%= f.text_field :phone_number %></td>
-  </tr> 
-
-</table>
- 
-  <%= f.submit('編集内容を保存する',class: 'btn btn-primary') %>
-
-  <%= link_to "退会する", delete_member_path, class: 'btn btn-danger' %>
+    <%= link_to "退会する", delete_member_path, class: 'btn btn-danger' %>
  
 <% end %>
