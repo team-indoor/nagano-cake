@@ -10,7 +10,7 @@ class MembersController < ApplicationController
   def update
     @member =Member.find(params[:id])
     if @member.update(member_params)
-    redirect_to action: :show
+       redirect_to action: :show
   else
     @member =Member.find(params[:id])
     render action: :edit
