@@ -6,7 +6,7 @@
       </div>
       <% @categories.each do |category| %>
       <div class="c-name">
-        <p><%= link_to category.name, products_path(category) %></p>
+        <p><%= link_to category.name, products_path(category_id:category.id) %></p>
       </div>
       <% end %>
     </div>
