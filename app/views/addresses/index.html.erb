@@ -31,8 +31,8 @@
 			<td><%= address.address %></td>
 			<td><%= address.reciever %></td>
 			<td>
-				<%= link_to edit_member_address_path(@member.id,address.id), class: "btn btn-primary" %>
-				<%=link_to "Destroy", member_address_path(@member.id,address.id), method: :delete, "data-confirm" => "Are you sure？", class: "btn btn-danger" %>
+				<%= link_to "編集する", edit_member_address_path(@member.id,address.id), class: "btn btn-primary" %>
+				<%=link_to "削除する", member_address_path(@member.id,address.id), method: :delete, "data-confirm" => "Are you sure？", class: "btn btn-danger" %>
 			</td>
 		</tr>
 	</tbody>
