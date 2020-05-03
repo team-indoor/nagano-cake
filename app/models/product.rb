@@ -7,7 +7,6 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
   validates :price, presence: true
-  validates :image_id, presence: true
   validates :introduction, length: {maximum:200}
   
 end
