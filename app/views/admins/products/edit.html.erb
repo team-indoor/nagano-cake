@@ -1,2 +1,46 @@
-<h1>Admins::Products#edit</h1>
-<p>Find me in app/views/admins/products/edit.html.erb</p>
+<h1 class="page-title">商品編集</h1>
+<%= form_for @product, url: admins_product_path(params[:id]) do |f| %>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="image-form">
+        <div class="image-box">
+          <% if @product.image_id.blank? %>
+            <%= image_tag "no-image.jpg", alt:"写真", width:"350px", height:"250px" %>
+          <% else %>
+            <%= attachment_image_tag @product, :image, size: "350x250" %>
+          <% end %>
+        </div>
+        <%= f.attachment_field :image %>
+      </div>
+    </div>
+    <div class="col-xs-5">
+      <div class="field form-group">
+        <%= f.label :name, "商品名" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :introduction, "商品紹介" %>
+        <%= f.text_area :introduction, class: "form-control" %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :category_id, "ジャンル" %><br>
+        <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :price, "税抜き価格" %>
+        <%= f.text_field :price, class: "form-control" %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :is_saling, "販売ステータス" %><br>
+        <%= f.select :is_saling, {販売中: 1, 売り切れ: 0}, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-10">
+      <div class="action">
+        <%= f.submit "編集", class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+<% end %>
