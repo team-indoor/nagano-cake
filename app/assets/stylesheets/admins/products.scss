@@ -15,3 +15,12 @@
 .borderless{
   border:#fff solid;
 }
+
+.add{
+  text-align: right;
+  a{
+    border-radius:50px;
+    font-size:19px;
+    box-shadow: 2px 2px gray;
+  }
+}
