@@ -5,30 +5,30 @@
 <div class="row">
 <div class="col-xs-7">
 
-<%= form_for @address, :url => {:action => :update} do |f| %>
+　　<%= form_for @address, :url => {:action => :update} do |f| %>
 
-<table class="table table-bordeless">
+　　<table class="table table-bordeless">
 
-<tr>
-	<th>郵便番号（ハイフンなし）</th>
-	<td><%= f.text_field :postal_code, autocomplete: "postal-code" %></td>
-</tr>
+　　　　<tr>
+	　　　<th>郵便番号（ハイフンなし）</th>
+	　　　<td><%= f.text_field :postal_code, autocomplete: "postal-code" %></td>
+　　　　</tr>
 
-<tr>
-	<th>住所</th>
-	<td><%= f.text_field :address, :size=>"60", autocomplete: "address" %></td>
-</tr>
+　　　　<tr>
+	　　　<th>住所</th>
+	　　  <td><%= f.text_field :address, :size=>"60", autocomplete: "address" %></td>
+　　　　</tr>
 
-<tr>
-	<th>宛名</th>
-	<td><%= f.text_field :reciever, autocomplete: "reciever" %></td>
-</tr>
+　　　　<tr>
+	　　  <th>宛名</th>
+	　　  <td><%= f.text_field :reciever, autocomplete: "reciever" %></td>
+　　　　</tr>
 
-</table>
+　　</table>
 
 	<%= f.submit("編集する",class: 'btn btn-primary') %>
 
-<% end %>
+　　 <% end %>
 
 </div>
 </div>

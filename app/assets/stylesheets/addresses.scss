@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //address_index
+.table-bordeless{
+	margin-top: 20px;
+}
 .table-bordered {
 	width: 650px;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 .table-bordered tr {
     height: 50px;

@@ -5,44 +5,44 @@
 <div class="row">
 <div class="col-xs-7">
 
-<%= form_for @address, :url => {:action => :index} do |f| %>
+  <%= form_for @address, :url => {:action => :index} do |f| %>
 
-<table class="table table-bordeless">
+    <table class="table table-bordeless">
 
-<tr>
-	<th>郵便番号（ハイフンなし）</th>
-	<td><%= f.text_field :postal_code, autocomplete: "postal-code"%></td>
-</tr>
+    	<tr>
+        <th>郵便番号（ハイフンなし）</th>
+        <td><%= f.text_field :postal_code, autocomplete: "postal-code"%></td>
+      </tr>
 
-<tr>
-	<th>住所</th>
-	<td><%= f.text_field :address, :size=>"60", autocomplete: "address"%></td>
-</tr>
+      <tr>
+  	    <th>住所</th>
+  	    <td><%= f.text_field :address, :size=>"60", autocomplete: "address"%></td>
+      </tr>
 
-<tr>
-	<th>宛名</th>
-	<td><%= f.text_field :reciever, autocomplete: "reciever"%></td>
-</tr>
+      <tr>
+  	    <th>宛名</th>
+  	    <td><%= f.text_field :reciever, autocomplete: "reciever"%></td>
+      </tr>
 
-</table>
+    </table>
+    
+  <%= f.submit("登録する",class: 'btn btn-success') %>
 
-	<%= f.submit("登録する",class: 'btn btn-success') %>
+  <% end %>
 
-<% end %>
-
-<table class="table-bordered">
-	<thead>
-		<tr>
-			<th bgcolor="#f5f5f5">郵便番号</th>
-			<th bgcolor="#f5f5f5">住所</th>
-			<th bgcolor="#f5f5f5">宛名</th>
-			<th bgcolor="#f5f5f5"></th>
-		</tr>
-	</thead>
-  <% @addresses.each do |address| %>
-	<tbody>
-		<tr>
-			<td><%= address.postal_code %></td>
+  <table class="table-bordered">
+    <thead>
+  		<tr>
+  			<th bgcolor="#f5f5f5">郵便番号</th>
+  			<th bgcolor="#f5f5f5">住所</th>
+  			<th bgcolor="#f5f5f5">宛名</th>
+  			<th bgcolor="#f5f5f5"></th>
+  		</tr>
+  	</thead>
+    <% @addresses.each do |address| %>
+  	<tbody>
+  		<tr>
+  			<td><%= address.postal_code %></td>
 			<td><%= address.address %></td>
 			<td><%= address.reciever %></td>
 			<td id="link">
@@ -50,9 +50,9 @@
 				<%=link_to "削除する", member_address_path(@member.id,address.id), method: :delete, "data-confirm" => "Are you sure？", class: "btn btn-danger" %>
 			</td>
 		</tr>
-	</tbody>
-  <% end %>
-</table>
+  	</tbody>
+    <% end %>
+  </table>
 
 </div>
 </div>
