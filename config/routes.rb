@@ -24,7 +24,11 @@ Rails.application.routes.draw do
       get "delete"
       patch "destroy"
     end
-    resources :cart_items, only:[:index, :create, :update, :destroy]
+    resources :cart_items, only:[:index, :create, :update, :destroy] do
+      collection do
+        delete "destroy_all"
+      end
+    end
     resources :orders, only:[:index, :show, :new, :create] do
       member do
         get "confirmation"
