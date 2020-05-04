@@ -15,11 +15,13 @@
     	    <th style="width:200px;">顧客ID</th>
   	  	    <td>
               <%= @member.id %>
-              <% if @member.is_active == true %>
-                <p>有効</p>
-    	      <% else %>
-    	        <p>退会済</p>
-    	      <% end %>
+              <div class="status">
+                <% if @member.is_active == true %>
+                  <p>有効会員</p>
+    	          <% else %>
+    	            <p>退会済会員</p>
+    	          <% end %>
+              </div>
     	    </td>
     	  </div>
     	</tr>
