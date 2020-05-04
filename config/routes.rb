@@ -19,9 +19,10 @@ Rails.application.routes.draw do
     resources :categories, only:[:index, :create, :edit, :update]
   end
   resources :products, only:[:index, :show]
-  resources :members, only:[:show, :edit, :update, :destroy] do
+  resources :members, only:[:show, :edit, :update] do
     member do
       get "delete"
+      patch "destroy"
     end
     resources :cart_items, only:[:index, :create, :update, :destroy]
     resources :orders, only:[:index, :show, :new, :create] do

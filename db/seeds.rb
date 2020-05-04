@@ -67,12 +67,14 @@ Member.create!(
 
 Product.create!(
   [
-    {name:"苺のケーキ",price: 800, is_saling: true, image_id: File.open("#{Rails.root}/app/assets/images/menus/ichigo.jpg"), category_id: 1, introduction:"説明文"},
-    {name:"チョコレートケーキ",price: 550, is_saling: true, image_id: File.open("#{Rails.root}/app/assets/images/menus/chocolate_cake.jpg"), category_id: 1, introduction:"説明文"},
-    {name:"プリン",price: 400, is_saling: true, image_id: File.open("#{Rails.root}/app/assets/images/menus/puding.jpg"), category_id: 2, introduction:"説明文"},
-    {name:"マカロン",price: 400, is_saling: true, image_id: File.open("#{Rails.root}/app/assets/images/menus/macalon.jpg"), category_id: 3, introduction:"説明文"},
-    {name:"あじさいゼリー",price: 700, is_saling: true, image_id: File.open("#{Rails.root}/app/assets/images/menus/azisai.jpg"), category_id: 4, introduction:"説明文"},
-    {name:"しゅわ！ソーダゼリー",price: 600, is_saling: true, image_id: File.open("#{Rails.root}/app/assets/images/menus/soda.jpg"), category_id: 4, introduction:"説明文"}
+    {name:"苺のケーキ",price: 800, is_saling: true, category_id: 1, introduction:"説明文"},
+    {name:"チョコレートケーキ",price: 550, is_saling: true, category_id: 1, introduction:"説明文"},
+    {name:"プリン",price: 400, is_saling: true, category_id: 2, introduction:"説明文"},
+    {name:"ココアプリン",price: 400, is_saling: true, category_id: 2, introduction:"説明文"},
+    {name:"クッキー（５枚）",price: 250, is_saling: true, category_id: 3, introduction:"説明文"},
+    {name:"マカロン",price: 400, is_saling: true, category_id: 3, introduction:"説明文"},
+    {name:"あじさいゼリー",price: 700, is_saling: true, category_id: 4, introduction:"説明文"},
+    {name:"しゅわ！ソーダゼリー",price: 600, is_saling: true, category_id: 4, introduction:"説明文"}
   ]
 )
 
