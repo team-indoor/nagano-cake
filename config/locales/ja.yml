@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      member: メンバー
+    attributes:
+      member:
+        last_name: 苗字
+        first_name: 名前
+        kana_last_name: 苗字（フリガナ）
+        kana_first_name: 名前（フリガナ）
+        email: メールアドレス
+        postal_code: 郵便番号（ハイフンなし）
+        address: 住所
+        phone_number: 電話番号（ハイフンなし）
