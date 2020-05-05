@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //address_index
-.table-bordeless{
+.table-bordeless {
 	margin-top: 20px;
 }
 .table-bordered {
@@ -15,4 +15,10 @@
 }
 .table-bordered #link {
     text-align: center;
+}
+.error_explanation {
+    color: red;
+}
+.error_explanation ul {
+	list-style: none;
 }

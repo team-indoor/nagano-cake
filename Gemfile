@@ -72,4 +72,5 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'jp_prefecture'
+gem 'rails-i18n'
 
