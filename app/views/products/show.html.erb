@@ -1,2 +1,51 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="row margin-30">
+  <div class="col-xs-2">
+    <table class="table category">
+      <thead>
+        <tr><th class="active center" style="font-size:17px">ジャンル検索</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="category-item"><%= link_to "全ジャンル", products_path %></td></tr>
+        <% @categories.each do |category| %>
+          <tr>
+            <td id="category-item"><%= link_to category.name, products_path(category_id:category.id) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-5">
+    <div class="image-box">
+      <% if @product.image_id.blank? %>
+        <%= image_tag "no-image.jpg", alt:"写真", width:"350px", height:"250px" %>
+      <% else %>
+        <%= attachment_image_tag @product, :image, :fill, 350, 250, format: "jpg" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-xs-5">
+    <div class="product-info">
+      <h2 class="product-info-title"><%= @product.name %></h2>
+      <div class="product-info-introduction">
+        <%= @product.introduction %>
+      </div>
+      <h2 class="product-info-price">¥ <%= tax_included_price(@product.price) %>  <span>  (税込)</span></h2>
+    </div>
+    <div class="add-cart-item">
+      <%= form_tag member_cart_items_path(current_member.id), method: "post" do %>
+        <%= hidden_field_tag :product_id, params[:id] %>
+        <div class="form-left">
+          <select name="count" class="form-control">
+            <option value="">個数</option>
+            <% 1.upto(99) do |count| %>
+              <option value="<%= count %>"><%= count %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-right">
+          <input type="submit" value="カートに追加する" class="btn btn-primary" >
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

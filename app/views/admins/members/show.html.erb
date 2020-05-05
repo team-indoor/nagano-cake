@@ -1,58 +1,76 @@
 <div class="row">
 <div class="col-xs-8 col-xs-offset-2">
 
-  <h3>
-	<%= @member.last_name %>
-	<%= @member.first_name %>
-    さんの会員詳細
-  </h3>
+  <div class="show-title">
+    <mark style="font-size: 20px;">
+  	<%= @member.last_name %>
+  	<%= @member.first_name %>
+      さんの会員詳細
+    </mark>
+  </div>
 
-<table>
-	<tr>
-		<th>顧客ID</th>
-		<td>
-			<%= @member.id %>
-			<% if @member.is_active == true %>
-			<p>有効</p>
-	        <% else %>
-	    	<p>退会済</p>
-	    	<% end %>
-		</td>
-	</tr>
-	<tr>
-		<th>氏名</th>
-		<td>
-			<%= @member.last_name %>
-			<%= @member.first_name %>
-		</td>
-	</tr>
-	<tr>
-		<th>フリガナ</th>
-		<td>
-			<%= @member.kana_last_name %>
-			<%= @member.kana_first_name %>	
-		</td>
-	</tr>
-	<tr>
-		<th>郵便番号</th>
-		<td><%= @member.postal_code %></td>
-	</tr>
-	<tr>
-		<th>住所</th>
-		<td><%= @member.address %></td>
-	</tr>
-	<tr>
-		<th>電話番号</th>
-		<td><%= @member.phone_number %></td>
-	</tr>
-	<tr>
-		<th>メールアドレス</th>
-		<td><%= @member.email %></td>
-	</tr>
-</table>
+  <table class="table table-borderless">
+    	<tr>
+    	  <div class="field">
+    	    <th style="width:200px;">顧客ID</th>
+  	  	    <td>
+              <%= @member.id %>
+              <div class="status">
+                <% if @member.is_active == true %>
+                  <p>有効会員</p>
+    	          <% else %>
+    	            <p>退会済会員</p>
+    	          <% end %>
+              </div>
+    	    </td>
+    	  </div>
+    	</tr>
+    	<tr>
+    	  <div class="field">
+    		<th>氏名</th>
+    		<td>
+    			<%= @member.last_name %>
+    			<%= @member.first_name %>
+    		</td>
+    	  </div>
+    	</tr>
+    	<tr>
+  	  	  <div class="field">
+    		<th>フリガナ</th>
+    		<td>
+    			<%= @member.kana_last_name %>
+    			<%= @member.kana_first_name %>	
+    		</td>
+    	  </div>
+    	</tr>
+    	<tr>
+          <div class="field">
+    		<th>郵便番号</th>
+    		<td><%= @member.postal_code %></td>
+    	  </div>
+    	</tr>
+    	<tr>
+    	  <div class="field">
+  	  	    <th>住所</th>
+    	    <td><%= @member.address %></td>
+  	      </div>
+  	    </tr>
+    	<tr>
+  	  	  <div class="field">
+  	  	    <th>電話番号</th>
+    		<td><%= @member.phone_number %></td>
+  	      </div>
+    	</tr>
+    	<tr>
+  	  	  <div class="field">
+  	  	    <th>メールアドレス</th>
+  	  	    <td><%= @member.email %></td>
+  	      </div>
+  	  </tr>
+   </table>
 
-<%=link_to "編集する",  edit_admins_member_path(@member.id) ,class: "btn btn-primary"%>
-<%=link_to "注文履歴一覧を見る",  admins_orders_path(@member.id) ,class: "btn btn-primary"%>
+    <%=link_to "編集する", edit_admins_member_path(@member.id),class: "btn btn-primary"%>
+    <%=link_to "注文履歴一覧を見る",  admins_orders_path(@member.id) ,class: "btn btn-primary"%>
 
 </div>
 </div>

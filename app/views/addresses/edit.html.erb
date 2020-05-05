@@ -10,37 +10,34 @@
 </div>
 
 <div class="row">
-<div class="col-xs-7">
-
+  <div class="col-xs-7">
      <% if @address.errors.any? %>
-   <div class="error_explanation">
-      <p>
-      	以下の<%= @address.errors.count %>件の不備があります。修正してもう一度登録してください。
-      </p>
-      <ul>
-        <% @address.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-      <% end %>
-    </div>
+      <div class="error_explanation">
+        <p>
+          以下の<%= @address.errors.count %>件の不備があります。修正してもう一度登録してください。
+        </p>
+        <ul>
+          <% @address.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form_for @address, :url => {:action => :update} do |f| %>
+      <table class="table table-bordeless">
 
-  　　<%= form_for @address, :url => {:action => :update} do |f| %>
-
-  　　<table class="table table-bordeless">
-
-  　　　　<tr>
-  	　　　  <th>郵便番号（ハイフンなし）</th>
-  	　　　  <td>
-  		      <%= f.text_field :postal_code, autocomplete: "postal-code" %>
-  		    </td>
+      <tr>
+        <th>郵便番号（ハイフンなし）</th>
+          <td>
+            <%= f.text_field :postal_code, autocomplete: "postal-code" %>
+          </td>
   　　　　</tr>
 
   　　　　<tr>
   	　　　  <th>住所</th>
   	　　    <td>
-  		      <%= f.text_field :address, :size=>"60", autocomplete: "address" %>
-  		    </td>
+  		        <%= f.text_field :address, :size=>"60", autocomplete: "address" %>
+            </td>
   　　　　</tr>
 
   　　　　<tr>
@@ -60,3 +57,4 @@
 </div>
 
 </body>
+
