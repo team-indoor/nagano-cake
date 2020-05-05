@@ -4,63 +4,62 @@
 
 <div class="row">
 <div class="col-xs-7">
-
   <div>
     <h1 class="main-title">登録情報</h1>
-    <%=  link_to "編集する", edit_member_path, class:"btn btn-primary" %>
-    <%=  link_to "パスワードを変更する", new_member_password_path, class:"btn btn-primary",style:"margin-left:10px;" %>
+    <%=  link_to "編集する", "#", class:"btn btn-primary" %>
+    <%=  link_to "パスワードを変更する", "#", class:"btn btn-primary",style:"margin-left:10px;" %>
   </div>
   <table class="table table-bordered">
     <tr>
       <div class="field">
-        <th bgcolor="#f5f5f5", style="width:200px;">氏名</th>
+        <th style="width:200px;">氏名</th>
         <td>
-          <%= "#{@member.last_name}　#{@member.first_name}" %>
+         <%= "#{current_member.last_name}　#{current_member.first_name}" %>
         </td>
       </div>
     </tr>
 
     <tr>
       <div class="field">
-        <th bgcolor="#f5f5f5">カナ</th>
+        <th>カナ</th>
         <td>
-          <%= "#{@member.kana_last_name}　#{@member.kana_first_name}" %>
+          <%= "#{current_member.kana_last_name}　#{current_member.kana_first_name}" %>
         </td>
       </div>
     </tr>
 
     <tr>
       <div class="field">
-        <th bgcolor="#f5f5f5">郵便番号</th>
+        <th>郵便番号</th>
         <td>
-          <%= @member.postal_code %>
+          <%= current_member.postal_code %>
         </td>
       </div>
     </tr>
 
     <tr>
       <div class="field">
-        <th bgcolor="#f5f5f5">住所</th>
+        <th>住所</th>
         <td>
-          <%= @member.address %>
+          <%= current_member.address %>
         </td>
       </div>
     </tr>
 
     <tr>
       <div class="field">
-        <th bgcolor="#f5f5f5">電話番号</th>
+        <th>電話番号</th>
         <td>
-          <%= @member.phone_number %>
+          <%= current_member.phone_number %>
         </td>
       </div>
     </tr>
 
     <tr>
       <div class="field">
-        <th bgcolor="#f5f5f5">メールアドレス</th>
+        <th>メールアドレス</th>
         <td>
-          <%= @member.email %>
+         <%= current_member.email %>
         </td>
       </div>
     </tr>
@@ -68,11 +67,10 @@
   </table>
   <div>
     <h1 class="main-title" style="margin-right:26px;">配送先</h1>
-    <%=  link_to "一覧を見る", "/members/#{@member.id}/addresses", class:"btn btn-primary"%>
+    <%=  link_to "一覧を見る", "#", class:"btn btn-primary"%>
   </div>
   <div>
     <h1 class="main-title">注文履歴</h1>
-    <%=  link_to "一覧を見る", "/members/#{@member.id}/orders", class:"btn btn-primary" %>
+    <%=  link_to "一覧を見る", "#", class:"btn btn-primary" %>
   </div>
-</div>
 </div>
