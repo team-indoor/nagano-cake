@@ -25,4 +25,8 @@ class Member < ApplicationRecord
   def prefecture_name=(prefecture_name)
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
+
+  def full_name
+    "#{self.last_name} #{self.first_name}"
+  end
 end

@@ -30,8 +30,8 @@ Rails.application.routes.draw do
       end
     end
     resources :orders, only:[:index, :show, :new, :create] do
-      member do
-        get "confirmation"
+      collection do
+        post "confirmation"
         get "fixed"
       end
     end
