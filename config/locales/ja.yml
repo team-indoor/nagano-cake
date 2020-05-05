@@ -12,3 +12,10 @@ ja:
         postal_code: 郵便番号（ハイフンなし）
         address: 住所
         phone_number: 電話番号（ハイフンなし）
+        
+      address: アドレス
+    attributes:
+      address:
+        postal_code: 郵便番号（ハイフンなし）
+        address: 住所
+        reciever: 宛名
