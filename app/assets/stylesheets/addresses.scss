@@ -1,3 +1,24 @@
 // Place all the styles related to the addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//address_index
+.table-bordeless {
+	margin-top: 20px;
+}
+.table-bordered {
+	width: 650px;
+	margin-top: 20px;
+}
+.table-bordered tr {
+    height: 50px;
+}
+.table-bordered #link {
+    text-align: center;
+}
+.error_explanation {
+    color: red;
+}
+.error_explanation ul {
+	list-style: none;
+}

@@ -12,7 +12,7 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     @address.member_id = params[:member_id].to_i
-    if @address.save!
+    if @address.save
        redirect_to member_addresses_path
     else
        @addresses = Address.all
@@ -26,7 +26,7 @@ class AddressesController < ApplicationController
     if @address.update(address_params)
        redirect_to member_addresses_path
     else
-       @address = Address.find(params[:id])
+       @addresses = Address.all
        render action: :edit
     end
   end
