@@ -1,2 +1,19 @@
-<h1>Admins::Categories#edit</h1>
-<p>Find me in app/views/admins/categories/edit.html.erb</p>
+<h1 class="page-title">ジャンル編集</h1>
+<div class="row">
+  <div class="col-xs-6 margin-30">
+    <div class="form-horizontal">
+      <%= form_for @category, url: admins_category_path(@category) do |f| %>
+        <%= f.label :name, "ジャンル" %>
+        <%= f.text_field :name %>
+        <% if @category.is_active? %>
+          <label><%= f.radio_button :is_active, 1, checked: true %> 有効 </label>
+          <label><%= f.radio_button :is_active, 0 %> 無効 </label>
+        <% else %>
+          <label><%= f.radio_button :is_active, 1 %> 有効 </label>
+          <label><%= f.radio_button :is_active, 0, checked: true %> 無効 </label>
+        <% end %>
+        <%= f.submit "変更を保存する", class: "btn btn-primary btn-md" %>
+      <% end %>
+    </div>
+  </div>
+</div>

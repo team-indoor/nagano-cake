@@ -1,2 +1,69 @@
-<h1>Members#edit</h1>
-<p>Find me in app/views/members/edit.html.erb</p>
+<div class="edit-title">
+  <mark style="font-size: 20px;">登録情報編集</mark>
+</div>
+
+<div class="row">
+<div class="col-xs-7">
+
+  <%= form_for @member, url: "/members/#{@member.id}" do |f| %>
+
+    <table>
+
+      <tr>
+        <div class="form-group">
+        <th>名前</th>
+        <td>
+          （姓）<%= f.text_field :last_name %>
+          （名）<%= f.text_field :first_name %>
+        </td>
+        </div>
+      </tr> 
+   
+      <tr>
+        <div class="form-group">
+        <th>フリガナ</th>
+        <td>
+          （セイ）<%= f.text_field :kana_last_name %>
+          （メイ）<%= f.text_field :kana_first_name %>
+        </td>
+        </div>
+      </tr> 
+
+      <tr>
+        <div class="form-group">
+        <th>メールアドレス</th>
+        <td><%= f.text_field :email %></td>
+        </div>
+      </tr> 
+
+      <tr>
+        <div class="form-group">
+        <th>郵便番号（ハイフンなし）</th>
+        <td><%= f.text_field :postal_code %></td>
+        </div>
+      </tr> 
+
+      <tr>
+        <div class="form-group">
+        <th>住所</th>
+        <td><%= f.text_area :address %></td>
+        </div>
+      </tr> 
+  
+      <tr>
+        <div class="form-group">
+        <th>電話番号（ハイフンなし）</th>
+        <td><%= f.text_field :phone_number %></td>
+        </div>
+      </tr> 
+
+    </table>
+ 
+      <%= f.submit('編集内容を保存する',class: 'btn btn-primary') %>
+
+      <%= link_to "退会する", delete_member_path, class: 'btn btn-danger' %>
+ 
+  <% end %>
+
+</div>
+</div>  
