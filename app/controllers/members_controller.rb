@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+  before_action :authenticate_member!
+
   def show
   	@member = Member.find(params[:id])
   end
@@ -12,7 +14,7 @@ class MembersController < ApplicationController
     if @member.update(member_params)
        redirect_to action: :show
   else
-    @member =Member.find(params[:id])
+    @members =Member.all
     render action: :edit
   end
 

@@ -5,13 +5,26 @@
 <div class="row">
 <div class="col-xs-7">
 
+  <% if @member.errors.any? %>
+      <div class="error_explanation">
+         <p>
+            以下の<%= @member.errors.count %>件の不備があります。修正してもう一度保存してください。
+          </p>
+          <ul>
+            <% @member.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+          </ul>
+            <% end %>
+      </div>
+
   <%= form_for @member, url: "/members/#{@member.id}" do |f| %>
 
-    <table>
+    <table class="table table-bordeless">
 
       <tr>
         <div class="form-group">
-        <th>名前</th>
+        <th style="width:200px;">名前</th>
         <td>
           （姓）<%= f.text_field :last_name %>
           （名）<%= f.text_field :first_name %>
