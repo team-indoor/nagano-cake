@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :members, only:[:show, :edit, :update] do
     member do
       get "delete"
-      patch "destroy"
+      patch "destroy", as: "destroy"
     end
     resources :cart_items, only:[:index, :create, :update, :destroy] do
       collection do

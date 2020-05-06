@@ -9,10 +9,10 @@ class Member < ApplicationRecord
 
   validates :last_name, presence: true
   validates :first_name, presence: true
-  validates :kana_last_name, presence: true
-  validates :kana_first_name, presence: true
-  validates :email, presence: true
-  validates :postal_code, presence: true
+
+  validates :kana_last_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
+  validates :kana_first_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
+  validates :postal_code, presence: true, length: { is: 7 } 
   validates :address, presence: true
   validates :phone_number, presence: true
 
@@ -29,4 +29,5 @@ class Member < ApplicationRecord
   def full_name
     "#{self.last_name} #{self.first_name}"
   end
+  
 end

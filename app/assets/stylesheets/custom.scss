@@ -51,10 +51,19 @@ header{
 }
 .page-title{
   text-align: left;
-  background-color: blanchedalmond;
+  background-color: rgb(247, 246, 208);
+  padding: 5px 10px;
   display: inline-block;
+  font-size:20px;
 }
-
+.hiddden{
+  display:none;
+}
+.field_with_errors {
+  display: contents;
+  @extend .has-error;
+  @extend .form-group;
+}
 
 
 
