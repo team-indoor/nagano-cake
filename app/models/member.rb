@@ -7,6 +7,14 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :kana_last_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
+  validates :kana_first_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
+  validates :postal_code, presence: true, length: { is: 7 } 
+  validates :address, presence: true
+  validates :phone_number, presence: true
+
   #include JpPrefecture
   #jp_prefecture :prefecture_code
   def prefecture_name
@@ -16,4 +24,6 @@ class Member < ApplicationRecord
   def prefecture_name=(prefecture_name)
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
+
+  
 end

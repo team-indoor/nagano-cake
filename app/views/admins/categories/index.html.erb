@@ -5,8 +5,8 @@
       <%= form_for @category, url: admins_categories_path do |f| %>
         <%= f.label :name, "ジャンル" %>
         <%= f.text_field :name %>
-        <label><%= f.radio_button :is_active, 1, checked: true %> 有効 </label>
-        <label><%= f.radio_button :is_active, 0 %> 無効 </label>
+        <label><%= f.radio_button :is_active, true, checked: true %> 有効 </label>
+        <label><%= f.radio_button :is_active, false %> 無効 </label>
         <%= f.submit "追加", class: "btn btn-primary btn-md" %>
       <% end %>
     </div>

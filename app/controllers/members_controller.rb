@@ -1,21 +1,21 @@
 class MembersController < ApplicationController
   before_action :authenticate_member!
+  before_action :active_member?
 
   def show
   	@member = Member.find(params[:id])
   end
 
   def edit
-  	@member = Member.find(params[:id])
+    @member = Member.find(params[:id])
   end
 
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      redirect_to action: :show
+      redirect_to member_path(@member)
     else
-      @member = Member.find(params[:id])
-      render action: :edit
+      render :edit
     end
   end
 
@@ -25,6 +25,7 @@ class MembersController < ApplicationController
   def destroy
     @member = Member.find(params[:id])
     @member.update(is_active: false)
+    sign_out(current_member)
     redirect_to root_path
   end
 
