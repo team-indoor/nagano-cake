@@ -1,48 +1,39 @@
-<header class="navbar navbar-fixed-top navbar-light border-bottom">
-<div class="container">
-  <nav>
-    <div class="logo-box">
-      <%= image_tag "logo.jpg", alt:"ながのCAKE", width:"300px", height:"97px" %>
-    </div>
-    <% if member_signed_in? %>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="header-name"><%= display_header_name(current_member) %></li>
-        <li class="header-link"><%= link_to "マイページ", member_path(current_member), class: "btn btn-default" %></li>
-        <li class="header-link"><%= link_to "商品一覧", products_path, class: "btn btn-default" %></li>
-        <li class="header-link"><%= link_to "カート", member_cart_items_path(current_member), class: "btn btn-default" %></li>
-        <li class="header-link"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-default" %></li>
-      </ul>
-    <% elsif admin_signed_in? %>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="header-name">
-          <%= current_admin.name %>
-        </li>
-        <li class="admins-link"><%= link_to "商品一覧", admins_products_path, class: "btn btn-default" %></li>
-        <li class="admins-link"><%= link_to "会員一覧", admins_members_path, class: "btn btn-default" %></li>
-        <li class="admins-link"><%= link_to "注文履歴一覧", admins_orders_path, class: "btn btn-default" %></li>
-        <li class="admins-link"><%= link_to "ジャンル一覧", admins_categories_path, class: "btn btn-default" %></li>
-        <li class="admins-link"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %></li>
-      </ul>
-    <% else %>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="header-link"><%= link_to "商品一覧", products_path, class: "btn btn-default" %></li>
-        <li class="header-link"><%= link_to "新規登録", new_member_registration_path, class: "btn btn-default" %></li>
-        <li class="header-link"><%= link_to "ログイン", new_member_session_path, class: "btn btn-default" %></li>
-      </ul>
-    <% end %>
-   
-    <% if admin_signed_in? %>
-      <div id="search">
-        <%= form_tag '#' do %>
-          <div class="search input-group">
-            <%= text_field_tag :search, params[:search], placeholder: "キーワード検索", class: "form-control search-box" %>
-            <span class="input-group-btn">
-                <%= button_tag "検索", :name => nil, class: "btn btn-primary search-btn" %>
-            </span>
-          </div>
-        <% end %>
+<header>
+  <nav class="navbar navbar-fixed-top navbar-light border-bottom">
+    <div class="container">
+      <div class="logo-box navber-brand">
+        <%= image_tag "logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px" %>
       </div>
-    <% end %>
-  </nav>
-</div>
+      <% if member_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="header-name"><%= display_header_name(current_member) %></li>
+          <li class="header-link"><%= link_to "マイページ", member_path(current_member), class: "btn btn-default" %></li>
+          <li class="header-link"><%= link_to "商品一覧", products_path, class: "btn btn-default" %></li>
+          <li class="header-link"><%= link_to "カート", member_cart_items_path(current_member), class: "btn btn-default" %></li>
+          <li class="header-link"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-default" %></li>
+        </ul>
+      <% elsif admin_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="header-name">
+            <%= current_admin.name %>
+          </li>
+          <li class="admins-link"><%= link_to "商品一覧", admins_products_path, class: "btn btn-default" %></li>
+          <li class="admins-link"><%= link_to "会員一覧", admins_members_path, class: "btn btn-default" %></li>
+          <li class="admins-link"><%= link_to "注文履歴一覧", admins_orders_path, class: "btn btn-default" %></li>
+          <li class="admins-link"><%= link_to "ジャンル一覧", admins_categories_path, class: "btn btn-default" %></li>
+          <li class="admins-link"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %></li>
+          <form class="form-inline ml-auto search-form">
+            <input class="form-control mr-sm-2" type="search" placeholder="検索..." aria-label="検索...">
+            <button type="submit" class="btn btn-success btn-sm">検索</button>
+          </form>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="header-link"><%= link_to "商品一覧", products_path, class: "btn btn-default" %></li>
+          <li class="header-link"><%= link_to "新規登録", new_member_registration_path, class: "btn btn-default" %></li>
+          <li class="header-link"><%= link_to "ログイン", new_member_session_path, class: "btn btn-default" %></li>
+        </ul>
+      <% end %>
+    </nav>
+  </div>
 </header>
