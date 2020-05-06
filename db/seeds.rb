@@ -182,3 +182,13 @@ Product.create!(
   ]
 )
 
+99.times do
+  Product.create!(
+    name: "testケーキ",
+    price: 500,
+    is_saling: true,
+    category_id: 1,
+    introduction: "ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、ここに説明文を記入、"
+  )
+end
+

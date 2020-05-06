@@ -1,6 +1,5 @@
 class Admins::MembersController < ApplicationController
   before_action :authenticate_admin!
-  before_action :active_member?
   
   def index
   	@members = Member.page(params[:page])
