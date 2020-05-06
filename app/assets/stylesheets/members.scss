@@ -17,27 +17,27 @@ mark {
   margin-bottom: 30px;
 }
 
-//product
-.product-title{
-  font-size: 25px;
-  margin-bottom: 0;
-  text-align: left;
-}
-
-.paginate{
-  float: left;
-}
-
-//mypage
-.mypage-title{
+//my-page
+.mypage-title {
   margin-left: 50px;
   margin-bottom: 10px;
 }
 
-.main-title{
+.main-title {
   font-size: 18px;
   margin: 20px 10px;
   text-align: left;
   font-weight: bold;
   display: inline-block;
+}
+
+//members_edit
+.form-group {
+  margin-top: 20px;
+}
+.error_explanation {
+    color: red;
+}
+.error_explanation ul {
+  list-style: none;
 }
