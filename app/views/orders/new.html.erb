@@ -1,2 +1,50 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+
+    <div class="order-title">
+      <mark style="font-size: 20px;">注文情報入力</mark>
+    </div>
+    <%= form_tag(confirmation_member_orders_path, method: :post) do %>
+      <%= hidden_field_tag :postage, 800 %>
+
+      <h2 class="o-sub-title">支払方法</h2>
+      <div class="order-radio">
+        <%= radio_button_tag :payment, 0, checked: true %><p style="display:inline; font-size:18px;">クレジットカード</p><br>
+        <%= radio_button_tag :payment, 1 %><p style="display:inline; font-size:18px;">銀行振込</p>
+      </div>
+
+      <h2 class="o-sub-title">お届け先</h2>
+      <div class="order-radio">
+        <%= radio_button_tag :address, 0, checked: true %><p style="display:inline; font-size:18px;">ご自身の住所</p>
+        <p class="order-sub-radio">
+          <%= "#{current_member.postal_code} #{current_member.address}" %><br>
+          <%= "#{current_member.last_name} #{current_member.first_name}" %>
+        </p>
+        <%= radio_button_tag :address, 1 %><p style="display:inline; font-size:18px;">登録済住所から選択</p><br>
+        <p class="order-sub-radio">
+          <%= select_tag :address_id, options_from_collection_for_select(@address.all, :id, :address_all) %><br>
+        </p>
+        <%= radio_button_tag :address, 2 %><p style="display:inline; font-size:18px;">新しいお届け先</p>
+        <div class="order-sub-radio">
+          <table>
+            <tr>
+              <td>郵便番号(ハイフンなし)</td>
+              <td class="order-form"><%= text_field_tag :new_postal_code %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td class="order-form"><%= text_field_tag :new_address %></td>
+            </tr>
+            <tr>
+              <td>宛名</td>
+              <td class="order-form"><%= text_field_tag :new_reciever %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="actions" style="text-align: center; margin-top:20px;">
+        <%= submit_tag "確認画面へ進む", class: "btn btn-primary", id: "s-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
