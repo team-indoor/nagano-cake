@@ -30,19 +30,26 @@
   padding: 10px;
 }
 
-.p-image{
-  width: 200px;
-  height: 140px;
-  border: 1px solid ;
-}
-
-.product{
-  width: 220px;
-  padding: 10px;
-  margin-left: 10px;
-  border: 1px solid ;
-  float: left;
-  margin-bottom: 30px;
+.p-index {
+  display:flex;
+  flex-wrap: wrap;
+  .product{
+    border:solid 1px #000;
+    margin:0 10px 10px 0;
+    width:200px;
+    .p-image{
+      img{
+      width:100%;
+      height:150px;
+      border: none;
+      padding: 10px;
+      margin:0 0 10px 0;
+      }
+    }
+    .p-info{
+    padding-left:10px;
+    }
+  }
 }
 
 .see-more{

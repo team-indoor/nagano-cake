@@ -1,17 +1,60 @@
-<h3>配送先編集</h3>
+<!DOCTYPE html>
+<html>
+<head>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
 
-<%= form_for @address, :url => {:action => :update} do |f| %>
+<div class="edit-title">
+  <mark style="font-size: 20px;">配送先編集</mark>
+</div>
 
-	<h4>郵便番号（ハイフンなし）</h4>
-	<%= f.text_field :postal_code %>
+<div class="row">
+  <div class="col-xs-7">
+     <% if @address.errors.any? %>
+      <div class="error_explanation">
+        <p>
+          以下の<%= @address.errors.count %>件の不備があります。修正してもう一度登録してください。
+        </p>
+        <ul>
+          <% @address.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form_for @address, :url => {:action => :update} do |f| %>
+      <table class="table table-bordeless">
 
-	<h4>住所</h4>
-	<%= f.text_area :address %>
+      <tr>
+        <th>郵便番号（ハイフンなし）</th>
+          <td>
+            <%= f.text_field :postal_code, autocomplete: "postal-code" %>
+          </td>
+  　　　　</tr>
 
-	<h4>宛名</h4>
-	<%= f.text_field :reciever %>
+  　　　　<tr>
+  	　　　  <th>住所</th>
+  	　　    <td>
+  		        <%= f.text_field :address, :size=>"60", autocomplete: "address" %>
+            </td>
+  　　　　</tr>
 
-	<%= f.submit("編集する",class: 'btn btn-primary') %>
+  　　　　<tr>
+  	　　    <th>宛名</th>
+  	　　    <td>
+  		     <%= f.text_field :reciever, autocomplete: "reciever" %>
+  		    </td>
+  　　　　</tr>
 
-<% end %>
+  　　</table>
+
+  	  <%= f.submit("編集する",class: 'btn btn-primary') %>
+
+  　　 <% end %>
+
+</div>
+</div>
+
+</body>
 

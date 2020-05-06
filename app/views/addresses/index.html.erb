@@ -1,40 +1,72 @@
-<h3>配送先登録/一覧</h3>
+  <div class="edit-title">
+    <mark style="font-size: 20px;">配送先登録/一覧</mark>
+  </div>
 
-<%= form_for @address, :url => {:action => :index} do |f| %>
+  <div class="row">
+  <div class="col-xs-7">
 
-	<h4>郵便番号（ハイフンなし）</h4>
-	<%= f.text_field :postal_code %>
+    <% if @address.errors.any? %>
+      <div class="error_explanation">
+         <p>
+            以下の<%= @address.errors.count %>件の不備があります。修正してもう一度登録してください。
+          </p>
+          <ul>
+            <% @address.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+          </ul>
+            <% end %>
+      </div>
 
-	<h4>住所</h4>
-	<%= f.text_area :address %>
+    <%= form_for @address, :url => {:action => :index} do |f| %>
 
-	<h4>宛名</h4>
-	<%= f.text_field :reciever %>
+      <table class="table table-bordeless">
 
-	<%= f.submit("登録する",class: 'btn btn-success') %>
+      	<tr>
+          <th>郵便番号（ハイフンなし）</th>
+          <td><%= f.text_field :postal_code, autocomplete: "postal-code"%></td>
+        </tr>
 
-<% end %>
+        <tr>
+    	    <th>住所</th>
+    	    <td><%= f.text_field :address, :size=>"60", autocomplete: "address"%></td>
+        </tr>
 
-<table class="table">
-	<thead>
-		<tr>
-			<th>郵便番号</th>
-			<th>住所</th>
-			<th>宛名</th>
-			<th></th>
-		</tr>
-	</thead>
-  <% @addresses.each do |address| %>
-	<tbody>
-		<tr>
-			<td><%= address.postal_code %></td>
-			<td><%= address.address %></td>
-			<td><%= address.reciever %></td>
-			<td>
-				<%= link_to "編集する", edit_member_address_path(@member.id,address.id), class: "btn btn-primary" %>
-				<%=link_to "削除する", member_address_path(@member.id,address.id), method: :delete, "data-confirm" => "Are you sure？", class: "btn btn-danger" %>
-			</td>
-		</tr>
-	</tbody>
-  <% end %>
-</table>
+        <tr>
+    	    <th>宛名</th>
+    	    <td><%= f.text_field :reciever, autocomplete: "reciever"%></td>
+        </tr>
+
+      </table>
+    
+    <%= f.submit("登録する",class: 'btn btn-success') %>
+
+    <% end %>
+
+    <table class="table-bordered">
+      <thead>
+    		<tr>
+  			<th bgcolor="#f5f5f5">郵便番号</th>
+  			<th bgcolor="#f5f5f5">住所</th>
+  			<th bgcolor="#f5f5f5">宛名</th>
+  			<th bgcolor="#f5f5f5"></th>
+    		</tr>
+    	</thead>
+      <% @addresses.each do |address| %>
+    	<tbody>
+  		  <tr>
+  		  	<td><%= address.postal_code %></td>
+			    <td><%= address.address %></td>
+			    <td><%= address.reciever %></td>
+			    <td id="link">
+			  	<%= link_to "編集する", edit_member_address_path(@member.id,address.id), class: "btn btn-primary" %>
+			  	<%=link_to "削除する", member_address_path(@member.id,address.id), method: :delete, "data-confirm" => "本当に削除しても大丈夫ですか？", class: "btn btn-danger" %>
+			    </td>
+	  	  </tr>
+    	</tbody>
+      <% end %>
+    </table>
+
+  </div>
+  </div>
+</body>

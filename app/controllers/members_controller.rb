@@ -20,6 +20,7 @@ class MembersController < ApplicationController
   end
 
   def delete
+
   end
 
   def destroy

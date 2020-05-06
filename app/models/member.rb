@@ -9,6 +9,7 @@ class Member < ApplicationRecord
 
   validates :last_name, presence: true
   validates :first_name, presence: true
+
   validates :kana_last_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
   validates :kana_first_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
   validates :postal_code, presence: true, length: { is: 7 } 
@@ -25,5 +26,8 @@ class Member < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
+  def full_name
+    "#{self.last_name} #{self.first_name}"
+  end
   
 end
