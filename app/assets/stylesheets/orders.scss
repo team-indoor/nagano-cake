@@ -5,6 +5,7 @@
 //order_index
 .table-bordered thead tr th {
 	height: 40px;
+}
 
 .order-title{
   margin-left: 50px;
@@ -14,6 +15,17 @@
   font-weight: bold;
   margin-bottom: 0;
   text-align: left;
+}
+
+.link {
+    margin: 10px;
+	text-align: center;
+}
+
+//order-show
+.table-bordered {
+    border-color: black;
+	float: left;
 }
 
 //confirmation
