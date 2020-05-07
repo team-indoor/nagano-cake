@@ -11,10 +11,10 @@ module ProductsHelper
 
   def display_count(id)
     if id.nil?
-      count = Product.all.count
+      count = Product.where(is_saling: true).count
       return count
     else
-      count = Product.where(category_id: id).count
+      count = Product.where(category_id: id, is_saling: true).count
       return count
     end
   end
