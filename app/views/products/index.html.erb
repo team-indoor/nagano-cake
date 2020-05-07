@@ -8,20 +8,20 @@
         <tr><td class="category-item"><%= link_to "全ジャンル", products_path %></td></tr>
         <% @categories.each do |category| %>
           <tr>
-            <td id="category-item"><%= link_to category.name, products_path(category_id:category.id) %></td>
+            <td id="category-item"><%= link_to category.name, products_path(category_id: category.id) %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
   <div class="col-xs-10">
-    <h2 class="index-title"><%= display_name(params["category_id"]) %>(<%= @products.length %>件)</h2>
+    <h2 class="index-title"><%= display_name(params["category_id"]) %>(<%= display_count(params["category_id"]) %>件)</h2>
     <% if @products.blank? %>
       <div class="no_product">
         <p>検索に該当する商品はありません</p>
       </div>
     <% else %>
-      <div class="product-index">
+      <div class="product-index margin-30">
         <% @products.each do |product| %>
           <div class="product-index-box">
             <div class="product-index-image">
@@ -29,13 +29,14 @@
             </div>
             <div class="product-index-info">
               <p><%= link_to product.name, product_path(product) %></p>
-              <p>¥<%= product.price %></p>
+              <p>¥<%= tax_included_price(product.price) %><span> (税込)</span></p>
             </div>
           </div>
         <% end %>
       </div>
     <% end %>
-    <div class="paginate">
+    <div class="paginate-tag">
+      <%= paginate @products %>
     </div>
   </div>
 </div>

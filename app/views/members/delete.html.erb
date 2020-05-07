@@ -12,8 +12,8 @@
     
 
     
-      <%= link_to "退会しない", edit_member_path, action: :show, class: 'btn btn-primary' %>
-      <%= link_to "退会する", member_path, method: :patch, "data-confirm" => "Are you sure？", class: 'btn btn-danger' %>
+      <%= link_to "退会しない", member_path, class: 'btn btn-primary btn-lg', style: "margin-right:50px" %>
+      <%= link_to "退会する", destroy_member_path, method: :patch, class: 'btn btn-danger btn-lg' %>
     </div>
 
   </div>

@@ -15,12 +15,9 @@
     </table>
   </div>
   <div class="col-xs-5">
+    <h2 class="index-title">商品詳細</h2>
     <div class="image-box">
-      <% if @product.image_id.blank? %>
-        <%= image_tag "no-image.jpg", alt:"写真", width:"350px", height:"250px" %>
-      <% else %>
-        <%= attachment_image_tag @product, :image, :fill, 350, 250, format: "jpg" %>
-      <% end %>
+      <%= attachment_image_tag @product, :image, :fill, 350, 250, format: "jpg", fallback: "no-image.jpg", size:'350x250' %>
     </div>
   </div>
   <div class="col-xs-5">
@@ -31,21 +28,23 @@
       </div>
       <h2 class="product-info-price">¥ <%= tax_included_price(@product.price) %>  <span>  (税込)</span></h2>
     </div>
-    <div class="add-cart-item">
-      <%= form_tag member_cart_items_path(current_member.id), method: "post" do %>
-        <%= hidden_field_tag :product_id, params[:id] %>
-        <div class="form-left">
-          <select name="count" class="form-control">
-            <option value="">個数</option>
-            <% 1.upto(99) do |count| %>
-              <option value="<%= count %>"><%= count %></option>
-            <% end %>
-          </select>
-        </div>
-        <div class="form-right">
-          <input type="submit" value="カートに追加する" class="btn btn-primary" >
-        </div>
-      <% end %>
-    </div>
+    <% if member_signed_in? %>
+      <div class="add-cart-item margin-30">
+        <%= form_tag member_cart_items_path(current_member.id), method: "post" do %>
+          <%= hidden_field_tag :product_id, params[:id] %>
+          <div class="form-left">
+            <select name="count" class="form-control">
+              <option value="">個数</option>
+              <% 1.upto(99) do |count| %>
+                <option value="<%= count %>"><%= count %></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="form-right">
+            <input type="submit" value="カートに追加する" class="btn btn-primary" >
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
