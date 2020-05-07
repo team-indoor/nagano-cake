@@ -11,12 +11,18 @@ class CartItemsController < ApplicationController
   end
 
   def create
+    item = CartItem.where(product_id: params[:product_id], member_id: current_member.id)
+    if item.empty?
       cart_items = CartItem.create(
-        member_id: current_member.id,
-        product_id: params[:product_id],
-        amount: params[:count]
+      member_id: current_member.id,
+      product_id: params[:product_id],
+      amount: params[:count]
       )
       redirect_to member_cart_items_path
+    else
+      flash[:notice] = "こちらの商品は既にカートに入っています"
+      redirect_to member_cart_items_path
+    end
   end
 
   def destroy
