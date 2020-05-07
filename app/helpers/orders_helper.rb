@@ -4,4 +4,5 @@ module OrdersHelper
     total_price = price + tax
     return total_price.floor
   end
+
 end

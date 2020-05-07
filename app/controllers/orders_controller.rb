@@ -3,9 +3,12 @@ class OrdersController < ApplicationController
   before_action :authenticate_member!
 
   def index
+    @orders = Order.all
   end
 
   def show
+    @orders = Order.all
+    @order_details = OrderDetail.where(order_id: params[:id])
   end
 
   def new

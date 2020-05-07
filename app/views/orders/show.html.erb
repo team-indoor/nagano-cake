@@ -1,2 +1,112 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<div class="mypage-title">
+  <mark style="font-size: 20px;">注文履歴詳細</mark>
+</div>
+
+<div class="row">
+  <div class="col-xs-7">
+
+    <b>注文情報</b>
+    <table class="table table-bordered">
+  	  <% @orders.each do |order| %>
+  	    <tr>
+  		  <div class="field">
+  		    <th bgcolor="#f5f5f5">注文日</th>
+  		    <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+  		  </div>
+  	    </tr>
+  	    <tr>
+  		  <div class="field">
+  		    <th bgcolor="#f5f5f5">配送先</th>
+  		    <td>
+  			    <%= order.postal_code %><br>
+  			    <%= order.address %><br>
+  			    <%= order.reciever %>
+  		    </td>
+  		  </div>
+  	    </tr>
+  	    <tr>
+  		  <div class="field">
+  		    <th bgcolor="#f5f5f5">支払方法</th>
+  		    <td>
+  			   <% if order.payment == 0 %>
+  			   <p>クレジット</p>
+  			   <% else %>
+  			   <p>銀行振込</p>
+  			   <% end %>
+  		    </td>
+  		  </div>
+  	    </tr>
+  	    <tr>
+  		  <div class="field">
+  		    <th bgcolor="#f5f5f5">ステータス</th>
+  		    <td>
+  		      <% if order.order_status == 0 %>
+  			    <p>入金待ち</p>
+  			  <% elsif order.order_status == 1 %>
+  			    <p>入金確認</p>
+  			  <% elsif order.order_status == 2 %>
+  			    <p>製作中</p>
+  			  <% elsif order.order_status == 3 %>
+  			    <p>発送準備中</p>
+  			  <% else %>
+  			    <p>発送済み</p>
+  			  <% end %>
+  		    </td>
+  		  </div>
+  	    </tr>
+    </table>
+
+  </div>
+  <div class="col-xs-5">
+
+    <b>請求情報</b>
+    <table class="table table-bordered">
+      <tr>
+  	    <div class="field">
+  	      <th bgcolor="#f5f5f5">商品合計</th>
+  		  <td><%= order.total_price %></td>
+  	    </div>
+  	  </tr>
+  	  <tr>
+  	    <div class="field">
+  	      <th bgcolor="#f5f5f5">配送料</th>
+  		  <td><%= order.postage %></td>
+  	    </div>
+  	  </tr>
+  	  <tr>
+  	    <div class="field">
+  	      <th bgcolor="#f5f5f5">ご請求額</th>
+  		  <td><%= order.total_price + order.postage %></td>
+  	    </div>
+  	  </tr>
+  	  <% end %>
+    </table>
+
+  </div>
+
+  <div class="col-xs-10">
+
+    <b>注文内容</b>
+    <table class="table table-bordered">
+  	  <thead>
+  		<tr>
+  		  <th bgcolor="#f5f5f5">商品</th>
+  		  <th bgcolor="#f5f5f5">単価（税込）</th>
+  		  <th bgcolor="#f5f5f5">個数</th>
+  		  <th bgcolor="#f5f5f5">小計</th>
+  		</tr>
+  	  </thead>
+    <% @order_details.each do |order_detail| %>
+  	  <tbody>
+  		<tr>
+  		  <td><%= order_detail.product.name %></td>
+  		  <td><%= order_detail.price %></td>
+  		  <td><%= order_detail.amount %></td>
+  		  <td><%= order_detail.price * order_detail.amount %></td>
+  		</tr>
+  	  </tbody>
+    <% end %>
+    </table>
+
+  </div>
+</div>
