@@ -11,7 +11,7 @@
 
 　　　　　<%= form_for @member, url: admins_member_path do |f| %>
 
-		<table class="table table-borderless">
+		<table border="0">
 			<tr>
 				<th>会員ID</th>
 				<td>
@@ -77,7 +77,7 @@
 			</tr> 
 		</table>
 
-		    <%= f.submit('変更を保存する',class: 'btn btn-primary') %>
+		    <%= f.submit('変更を保存する',class: 'btn btn-primary', style: 'margin: 10px 0px 20px 0px') %>
 		    <% end %>
 	</div>
 </div>
