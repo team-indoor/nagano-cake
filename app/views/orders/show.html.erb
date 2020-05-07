@@ -42,17 +42,14 @@
   		    <td>
   		      <% if order.order_status == 0 %>
   			    <p>入金待ち</p>
-  			  <% if order.order_status == 1 %>
+  			  <% elsif order.order_status == 1 %>
   			    <p>入金確認</p>
-  			  <% if order.order_status == 2 %>
+  			  <% elsif order.order_status == 2 %>
   			    <p>製作中</p>
-  			  <% if order.order_status == 3 %>
+  			  <% elsif order.order_status == 3 %>
   			    <p>発送準備中</p>
   			  <% else %>
   			    <p>発送済み</p>
-  			  <% end %>
-  			  <% end %>
-  			  <% end %>
   			  <% end %>
   		    </td>
   		  </div>

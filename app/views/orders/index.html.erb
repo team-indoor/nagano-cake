@@ -36,17 +36,14 @@
 		   <td>
 		      <% if order.order_status == 0 %>
 			    入金待ち
-			  <% if order.order_status == 1 %>
+			  <% elsif order.order_status == 1 %>
 				入金確認
-			  <% if order.order_status == 2 %>
+			  <% elsif order.order_status == 2 %>
 				 製作中
-			  <% if order.order_status == 3 %>
+			  <% elsif order.order_status == 3 %>
 				 発送準備中
 			  <% else %>
 				 発送済み
-			  <% end %>
-			  <% end %>
-			  <% end %>
 			  <% end %>
 		   </td>
 		   <td class="link">
