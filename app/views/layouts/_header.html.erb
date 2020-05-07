@@ -2,7 +2,7 @@
   <nav class="navbar navbar-fixed-top navbar-light border-bottom">
     <div class="container">
       <div class="logo-box navber-brand">
-        <%= image_tag "logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px" %>
+        <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
       </div>
       <% if member_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
