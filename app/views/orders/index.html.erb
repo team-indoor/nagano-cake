@@ -8,12 +8,12 @@
   <table class="table-bordered">
     <thead>
 	  <tr>
-		  <th bgcolor="#f5f5f5">注文日</th>
-		  <th bgcolor="#f5f5f5">配送先</th>
-		  <th bgcolor="#f5f5f5">注文商品</th>
-		  <th bgcolor="#f5f5f5">支払金額</th>
-		  <th bgcolor="#f5f5f5">ステータス</th>
-		  <th bgcolor="#f5f5f5">注文詳細</th>
+		  <th bgcolor="#f5f5f5", style="width:50px">注文日</th>
+		  <th bgcolor="#f5f5f5", style="width:200px">配送先</th>
+		  <th bgcolor="#f5f5f5", style="width:80px">注文商品</th>
+		  <th bgcolor="#f5f5f5", style="width:50px">支払金額</th>
+		  <th bgcolor="#f5f5f5", style="width:80px">ステータス</th>
+		  <th bgcolor="#f5f5f5", style="width:50px">注文詳細</th>
 	  </tr>
 	</thead>
     <% @orders.each do |order| %>
@@ -46,7 +46,7 @@
 				 発送済み
 			  <% end %>
 		   </td>
-		   <td class="link">
+		   <td class="table-cell">
 			  <%=  link_to "表示する", member_order_path(member_id: current_member.id,id: order.id), class:"btn btn-primary" %>
 		   </td>
 		</tr>

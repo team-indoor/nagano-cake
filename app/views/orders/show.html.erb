@@ -3,30 +3,26 @@
 </div>
 
 <div class="row">
+  <div class="clearfix">
   <div class="col-xs-7">
 
     <b>注文情報</b>
     <table class="table table-bordered">
   	  <% @orders.each do |order| %>
   	    <tr>
-  		  <div class="field">
-  		    <th bgcolor="#f5f5f5">注文日</th>
+  		    <th>注文日</th>
   		    <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-  		  </div>
   	    </tr>
   	    <tr>
-  		  <div class="field">
-  		    <th bgcolor="#f5f5f5">配送先</th>
+  		    <th>配送先</th>
   		    <td>
   			    <%= order.postal_code %><br>
   			    <%= order.address %><br>
   			    <%= order.reciever %>
   		    </td>
-  		  </div>
   	    </tr>
   	    <tr>
-  		  <div class="field">
-  		    <th bgcolor="#f5f5f5">支払方法</th>
+  		    <th>支払方法</th>
   		    <td>
   			   <% if order.payment == 0 %>
   			   <p>クレジット</p>
@@ -34,11 +30,9 @@
   			   <p>銀行振込</p>
   			   <% end %>
   		    </td>
-  		  </div>
   	    </tr>
   	    <tr>
-  		  <div class="field">
-  		    <th bgcolor="#f5f5f5">ステータス</th>
+  		    <th>ステータス</th>
   		    <td>
   		      <% if order.order_status == 0 %>
   			    <p>入金待ち</p>
@@ -52,48 +46,42 @@
   			    <p>発送済み</p>
   			  <% end %>
   		    </td>
-  		  </div>
   	    </tr>
     </table>
-
   </div>
+
   <div class="col-xs-5">
 
     <b>請求情報</b>
     <table class="table table-bordered">
       <tr>
-  	    <div class="field">
-  	      <th bgcolor="#f5f5f5">商品合計</th>
+  	      <th>商品合計</th>
   		  <td><%= order.total_price %></td>
-  	    </div>
   	  </tr>
   	  <tr>
-  	    <div class="field">
-  	      <th bgcolor="#f5f5f5">配送料</th>
+  	      <th>配送料</th>
   		  <td><%= order.postage %></td>
-  	    </div>
   	  </tr>
   	  <tr>
-  	    <div class="field">
-  	      <th bgcolor="#f5f5f5">ご請求額</th>
+  	      <th>ご請求額</th>
   		  <td><%= order.total_price + order.postage %></td>
-  	    </div>
   	  </tr>
   	  <% end %>
     </table>
+    </div>
 
   </div>
 
   <div class="col-xs-10">
 
     <b>注文内容</b>
-    <table class="table table-bordered">
+    <table class="table table-bordered" >
   	  <thead>
   		<tr>
-  		  <th bgcolor="#f5f5f5">商品</th>
-  		  <th bgcolor="#f5f5f5">単価（税込）</th>
-  		  <th bgcolor="#f5f5f5">個数</th>
-  		  <th bgcolor="#f5f5f5">小計</th>
+  		  <th style="width:300px">商品</th>
+  		  <th style="width:80px">単価（税込）</th>
+  		  <th style="width:50px">個数</th>
+  		  <th style="width:50px">小計</th>
   		</tr>
   	  </thead>
     <% @order_details.each do |order_detail| %>
