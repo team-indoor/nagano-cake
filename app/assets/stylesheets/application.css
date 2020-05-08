@@ -25,3 +25,7 @@
 textarea{
   resize: vertical;
 }
+
+.borderless{
+  border:#fff solid;
+}
