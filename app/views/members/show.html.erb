@@ -11,57 +11,45 @@
   </div>
   <table class="table table-bordered">
     <tr>
-      <div class="field">
-        <th style="width:200px;">氏名</th>
+        <th>氏名</th>
         <td>
          <%= "#{current_member.last_name}　#{current_member.first_name}" %>
         </td>
-      </div>
     </tr>
 
     <tr>
-      <div class="field">
         <th>カナ</th>
         <td>
           <%= "#{current_member.kana_last_name}　#{current_member.kana_first_name}" %>
         </td>
-      </div>
     </tr>
 
     <tr>
-      <div class="field">
         <th>郵便番号</th>
         <td>
           <%= current_member.postal_code %>
         </td>
-      </div>
     </tr>
 
     <tr>
-      <div class="field">
         <th>住所</th>
         <td>
           <%= current_member.address %>
         </td>
-      </div>
     </tr>
 
     <tr>
-      <div class="field">
         <th>電話番号</th>
         <td>
           <%= current_member.phone_number %>
         </td>
-      </div>
     </tr>
 
     <tr>
-      <div class="field">
         <th>メールアドレス</th>
         <td>
          <%= current_member.email %>
         </td>
-      </div>
     </tr>
 
   </table>

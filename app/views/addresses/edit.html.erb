@@ -11,45 +11,34 @@
 
 <div class="row">
   <div class="col-xs-7">
-     <% if @address.errors.any? %>
-      <div class="error_explanation">
-        <p>
-          以下の<%= @address.errors.count %>件の不備があります。修正してもう一度登録してください。
-        </p>
-        <ul>
-          <% @address.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <%= render "layouts/error_message", title: @address %>
     <%= form_for @address, :url => {:action => :update} do |f| %>
-      <table class="table table-bordeless">
+      <table border="0">
 
       <tr>
         <th>郵便番号（ハイフンなし）</th>
           <td>
-            <%= f.text_field :postal_code, autocomplete: "postal-code" %>
+            <%= f.text_field :postal_code, autocomplete: "postal-code", class: "form-control" %>
           </td>
   　　　　</tr>
 
   　　　　<tr>
   	　　　  <th>住所</th>
   	　　    <td>
-  		        <%= f.text_field :address, :size=>"60", autocomplete: "address" %>
+  		        <%= f.text_field :address, :size=>"60", autocomplete: "address", class: "form-control" %>
             </td>
   　　　　</tr>
 
   　　　　<tr>
   	　　    <th>宛名</th>
   	　　    <td>
-  		     <%= f.text_field :reciever, autocomplete: "reciever" %>
+  		     <%= f.text_field :reciever, autocomplete: "reciever", class: "form-control" %>
   		    </td>
   　　　　</tr>
 
   　　</table>
 
-  	  <%= f.submit("編集する",class: 'btn btn-primary') %>
+  	  <%= f.submit("編集する",class: 'btn btn-primary', style: 'margin-top: 10px') %>
 
   　　 <% end %>
 

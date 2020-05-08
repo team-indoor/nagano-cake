@@ -30,9 +30,9 @@
     <div class="p-index">
       <% @products.first(4).shuffle.each do |product| %>
       <div class="product">
-        <div class="p-image">
-          <%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpg', fallback: "no-image.jpg", size:'150x150' %>
-        </div>
+        <div class="product-index-image">
+              <%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpg', fallback: "no-image.jpg", size:'150x150' %>
+            </div>
         <div class="p-info">
           <p><%= link_to product.name, product_path(product) %></p>
           <p><%= "¥#{product.price}" %></p>
