@@ -9,24 +9,26 @@
 
     <%= form_for @address, :url => {:action => :index} do |f| %>
 
+    <div class="border">
       <table border="0">
 
-      	<tr style="height:50px">
+      	<tr>
           <th>郵便番号（ハイフンなし）</th>
           <td><%= f.text_field :postal_code, autocomplete: "postal-code", class: "form-control"%></td>
         </tr>
 
-        <tr style="height:50px">
+        <tr>
     	    <th>住所</th>
     	    <td><%= f.text_field :address, :size=>"60", autocomplete: "address", class: "form-control"%></td>
         </tr>
 
-        <tr style="height:50px">
+        <tr>
     	    <th>宛名</th>
     	    <td><%= f.text_field :reciever, autocomplete: "reciever", class: "form-control"%></td>
         </tr>
 
       </table>
+    </div>
     
     <div class="button">
     <%= f.submit("登録する",class: 'btn btn-success') %>
@@ -34,7 +36,7 @@
 
     <% end %>
 
-    <table class="table-bordered">
+    <table class="table table-bordered">
       <thead>
     		<tr>
   			<th bgcolor="#f5f5f5", style="width:50px">郵便番号</th>

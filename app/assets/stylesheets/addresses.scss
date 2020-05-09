@@ -12,6 +12,7 @@
 }
 .table-bordered tr {
     height: 50px;
+    vertical-align: middle;
 }
 .table-bordered #link {
     text-align: center;
@@ -21,6 +22,10 @@
 }
 .error_explanation ul {
 	list-style: none;
+}
+.border table tr th {
+    height: 50px;
+    width: 180px;
 }
 
 //address_edit
