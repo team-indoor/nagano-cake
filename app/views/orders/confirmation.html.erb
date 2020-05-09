@@ -17,7 +17,7 @@
           <% if cart_item.product.image_id.blank? %>
           <%= image_tag "no-image.jpg", alt:"写真", width:"55px", height:"40px" %>
           <% else %>
-          <%= attachment_image_tag cart_item.product, :image, :fill, 350, 250, format: "jpg" %>
+          <%= attachment_image_tag cart_item.product, :image, :fill, 150, 150, format: 'jpg', fallback: "no-image.jpg", size:'55x40' %>
           <% end %>
           <%= cart_item.product.name %>
         </td>

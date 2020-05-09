@@ -35,7 +35,7 @@
             </div>
         <div class="p-info">
           <p><%= link_to product.name, product_path(product) %></p>
-          <p><%= "¥#{product.price}" %></p>
+          <p>¥<%= tax_included_price(product.price) %></p>
         </div>
       </div>
       <% end %>

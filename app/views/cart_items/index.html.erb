@@ -1,10 +1,12 @@
 <%= javascript_include_tag "application" %>
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
-    <% if flash[:notice] %>
-      <p id="cart-error">
-      <%= flash[:notice] %></p>
+    <% if @cart_item.errors.any? %>
+    <div id="error_explanation">
+      <ul><p style="font-size:20px; color:#a52a2a;">エラー：選択した商品は既にカートに入っています</p></ul>
+    </div>
     <% end %>
+
     <div class="cart-title">
       <mark style="font-size: 20px;">ショッピングカート</mark>
       <%= link_to "カートを空にする", destroy_all_member_cart_items_path, class: "btn btn-danger", :method => :delete, style: "float: right;" %>
@@ -24,7 +26,7 @@
           <% if cart_item.product.image_id.blank? %>
             <%= image_tag "no-image.jpg", alt:"写真", width:"55px", height:"40px" %>
           <% else %>
-            <%= attachment_image_tag cart_item.product, :image, :fill, 350, 250, format: "jpg" %>
+            <%= attachment_image_tag cart_item.product, :image, :fill, 150, 150, format: 'jpg', fallback: "no-image.jpg", size:'55x40' %>
           <% end %>
           <%= cart_item.product.name %>
         </td>
@@ -32,7 +34,10 @@
           <%= tax_included_price(cart_item.product.price) %>
         </td>
         <td>
-          <%= cart_item.amount %>
+          <%= form_for cart_item, url: member_cart_item_path(current_member.id,cart_item.id),method: :patch do |f| %>
+            <%= f.select :amount,[*1..99], {}, { placeholder: cart_item.amount, autofocus: 'true', class: 'form-control', style: 'width:70px; float:left; margin-right:10px;'} %>
+            <%= f.submit "更新", class: "btn btn-primary btn-xs", style:"padding:8px 10px;"%>
+          <% end %>
         </td>
         <td>
           <%= cart_item.amount * tax_included_price(cart_item.product.price) %>

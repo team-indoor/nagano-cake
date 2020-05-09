@@ -3,6 +3,7 @@ class CartItemsController < ApplicationController
   before_action :authenticate_member!
 
   def index
+    @cart_item = CartItem.new
     @cart_items = CartItem.where(member_id: current_member.id)
     @total_price = 0
     @cart_items.each do |cart_item|
@@ -11,18 +12,17 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    item = CartItem.where(product_id: params[:product_id], member_id: current_member.id)
-    if item.empty?
-      cart_items = CartItem.create(
+      @cart_item = CartItem.new(
       member_id: current_member.id,
       product_id: params[:product_id],
       amount: params[:count]
       )
-      redirect_to member_cart_items_path
-    else
-      flash[:notice] = "こちらの商品は既にカートに入っています"
-      redirect_to member_cart_items_path
-    end
+      if @cart_item.save
+        redirect_to member_cart_items_path
+      else
+        @cart_items = CartItem.where(member_id: current_member.id)
+        render "index"
+      end
   end
 
   def destroy
@@ -38,4 +38,19 @@ class CartItemsController < ApplicationController
     redirect_to member_cart_items_path
   end
 
+  def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to member_cart_items_path
+  end
+
+  private
+
+  def cart_item_params
+    params.require(:cart_item).permit(
+    :member_id,
+    :product_id,
+    :amount,
+  )
+  end
 end
