@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
     create_table :orders do |t|
       t.references :member, foreign_key: true
       t.integer :total_price
-      t.integer :postage
+      t.integer :postage, defalut: 800
       t.integer :payment
       t.string :reciever
       t.string :postal_code
