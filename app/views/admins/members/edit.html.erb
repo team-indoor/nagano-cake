@@ -22,45 +22,43 @@
 
 			<tr>
 				<th>氏名</th>
-				<td>
-				  <%= f.text_field :last_name %>
-				  <%= f.text_field :first_name %>
-			    </td>
+				<td><%= f.text_field :last_name, class: "form-control" %></td>
+				<td>&nbsp;&nbsp;&nbsp;</td>
+				<td><%= f.text_field :first_name, class: "form-control" %></td>
 			</tr> 
 
 			<tr>
 				<th>フリガナ</th>
-				<td>
-				  <%= f.text_field :kana_last_name %>
-				  <%= f.text_field :kana_first_name %>
-				</td>
+				<td><%= f.text_field :kana_last_name, class: "form-control" %></td>
+				<td>&nbsp;&nbsp;&nbsp;</td>
+				<td><%= f.text_field :kana_first_name, class: "form-control" %></td>
 			</tr> 
 
 			<tr>
 				<th>郵便番号</th>
-				<td>
-			      <%= f.text_field :postal_code %>
+				<td colspan="3">
+			      <%= f.text_field :postal_code, class: "form-control" %>
 				</td>
 			</tr> 
 
 		    <tr>
 				<th>住所</th>
-				<td>
-				  <%= f.text_area :address %>
+				<td colspan="3">
+				  <%= f.text_area :address, class: "form-control" %>
 				</td>
 			</tr> 
 
 			<tr>
 				<th>電話番号</th>
-				<td>
-				  <%= f.text_field :phone_number %>
+				<td colspan="3">
+				  <%= f.text_field :phone_number, class: "form-control" %>
 				</td>
 			</tr> 
 
 			<tr>
 				<th>メールアドレス</th>
-				<td>
-				  <%= f.text_field :email %>
+				<td colspan="3">
+				  <%= f.text_field :email, class: "form-control" %>
 				</td>
 			</tr> 
 
