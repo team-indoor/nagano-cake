@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+
   <div class="edit-title">
     <mark style="font-size: 20px;">配送先登録/一覧</mark>
   </div>
@@ -7,37 +14,37 @@
 
     <%= render "layouts/error_message", title: @address %>
 
+    <% if current_member.is_active? %>
     <%= form_for @address, :url => {:action => :index} do |f| %>
 
-    <div class="border">
       <table border="0">
 
       	<tr>
-          <th>郵便番号（ハイフンなし）</th>
+          <th class="form">郵便番号（ハイフンなし）</th>
           <td><%= f.text_field :postal_code, autocomplete: "postal-code", class: "form-control"%></td>
         </tr>
 
         <tr>
-    	    <th>住所</th>
+    	    <th class="form">住所</th>
     	    <td><%= f.text_field :address, :size=>"60", autocomplete: "address", class: "form-control"%></td>
         </tr>
 
         <tr>
-    	    <th>宛名</th>
+    	    <th class="form">宛名</th>
     	    <td><%= f.text_field :reciever, autocomplete: "reciever", class: "form-control"%></td>
         </tr>
 
       </table>
-    </div>
     
     <div class="button">
     <%= f.submit("登録する",class: 'btn btn-success') %>
     </div>
 
     <% end %>
+    <% end %>
 
     <table class="table table-bordered">
-      <thead>
+      <thead id="head">
     		<tr>
   			<th bgcolor="#f5f5f5", style="width:50px">郵便番号</th>
   			<th bgcolor="#f5f5f5", style="width:100px">住所</th>
@@ -46,7 +53,7 @@
     		</tr>
     	</thead>
       <% @addresses.each do |address| %>
-    	<tbody>
+    	<tbody id="body">
   		  <tr>
   		  	<td><%= address.postal_code %></td>
 			    <td><%= address.address %></td>

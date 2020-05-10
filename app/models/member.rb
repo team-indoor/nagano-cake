@@ -12,9 +12,9 @@ class Member < ApplicationRecord
 
   validates :kana_last_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }
   validates :kana_first_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
-  validates :postal_code, presence: true, length: { is: 7 } 
+  validates :postal_code, presence: true, length: { is: 7 }, numericality: { only_integer: true }
   validates :address, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true, numericality: { only_integer: true }
 
   #include JpPrefecture
   #jp_prefecture :prefecture_code

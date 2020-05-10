@@ -9,7 +9,7 @@
       <%= render "layouts/error_message", title: @member %>
       <table class="margin-30">
           <tr style="height:70px">
-            <th>名前</th>
+            <th class="form">名前</th>
             <td>（姓）</td>
             <td><%= f.text_field :last_name, class: "form-control" %></td>
             <td>（名）</td>
@@ -17,7 +17,7 @@
           </tr>
 
           <tr style="height:70px">
-            <th>フリガナ</th>
+            <th class="form">フリガナ</th>
             <td>（セイ）</td>
             <td><%= f.text_field :kana_last_name, class: "form-control" %></td>
             <td>（メイ）</td>
@@ -26,23 +26,23 @@
 
 
         <tr style="height:70px">
-          <th>メールアドレス</th>
+          <th class="form">メールアドレス</th>
           <td colspan="4"><%= f.text_field :email, class: "form-control" %></td>
         </tr> 
 
         <tr style="height:70px">
-          <th>郵便番号（ハイフンなし）</th>
+          <th class="form">郵便番号（ハイフンなし）</th>
           <td colspan="4"><%= f.text_field :postal_code, class: "form-control" %></td>
         </tr> 
 
         <tr style="height:70px">
-          <th>住所</th>
+          <th class="form">住所</th>
           <td colspan="4"><%= f.text_field :address, class: "form-control" %></td>
         </tr> 
 
 
         <tr style="height:70px">
-          <th>電話番号（ハイフンなし）</th>
+          <th class="form">電話番号（ハイフンなし）</th>
           <td colspan="4"><%= f.text_field :phone_number, class: "form-control" %></td>
         </tr> 
 

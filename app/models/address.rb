@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   belongs_to :member
 
-  validates :postal_code, presence: true, length: { is: 7 } 
+  validates :postal_code, presence: true, length: { is: 7 }, numericality: { only_integer: true }
   validates :address, presence: true
   validates :reciever, presence: true
 
