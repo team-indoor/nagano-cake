@@ -1,4 +1,7 @@
 class AddressesController < ApplicationController
+  before_action :authenticate_member!
+  before_action :active_member?
+  
   def index
     @address = Address.new
     @addresses = Address.all

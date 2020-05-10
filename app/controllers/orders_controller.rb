@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   include OrdersHelper
   before_action :authenticate_member!
+  before_action :active_member?
 
   def index
     @orders = Order.all

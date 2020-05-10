@@ -28,23 +28,30 @@
       </div>
       <h2 class="product-info-price">¥ <%= tax_included_price(@product.price) %>  <span>  (税込)</span></h2>
     </div>
-    <% if member_signed_in? %>
-      <div class="add-cart-item margin-30">
-        <%= form_tag member_cart_items_path(current_member.id), method: "post" do %>
-          <%= hidden_field_tag :product_id, params[:id] %>
-          <div class="form-left">
-            <select name="count" class="form-control">
-              <option value="">個数</option>
-              <% 1.upto(99) do |count| %>
-                <option value="<%= count %>"><%= count %></option>
+    <% if @product.is_saling? %>
+      <% if member_signed_in? %>
+        <div class="add-cart-item margin-30">
+          <%= form_tag member_cart_items_path(current_member.id), method: "post" do %>
+            <%= hidden_field_tag :product_id, params[:id] %>
+            <div class="form-left">
+              <select name="count" class="form-control">
+                <% 1.upto(99) do |count| %>
+                  <option value="<%= count %>"><%= count %>個</option>
+                <% end %>
+              </select>
+            </div>
+            <div class="form-right">
+              <% if current_member.is_active? %>
+                <input type="submit" value="カートに追加する" class="btn btn-primary" id="button">
+              <% else %>
+                <input type="submit" value="カートに追加する" class="btn btn-primary" id="button" disabled>
               <% end %>
-            </select>
-          </div>
-          <div class="form-right">
-            <input type="submit" value="カートに追加する" class="btn btn-primary" >
-          </div>
-        <% end %>
-      </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <h3 style="color:red">売り切れ中</h3>
     <% end %>
   </div>
 </div>

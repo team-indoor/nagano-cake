@@ -29,7 +29,12 @@
             </div>
             <div class="product-index-info">
               <p><%= link_to product.name, product_path(product) %></p>
-              <p>¥<%= tax_included_price(product.price) %><span> (税込)</span></p>
+              <p>
+                ¥<%= tax_included_price(product.price) %><span> (税込)</span>
+                <% unless product.is_saling? %>
+                  <span style="color:red">売り切れ中</span>
+                <% end %>
+              </p>
             </div>
           </div>
         <% end %>
