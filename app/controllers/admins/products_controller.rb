@@ -14,8 +14,11 @@ class Admins::ProductsController < ApplicationController
   end
 
   def create
-    @product =  Product.create!(product_params)
-    if @product
+    @product =  Product.new(product_params)
+    unless @product.category.is_active?
+      @product.update(is_saling: false)
+    end
+    if @product.save
       redirect_to admins_product_path(@product)
     else
       render :new

@@ -1,6 +1,7 @@
 class CartItemsController < ApplicationController
   include CartItemsHelper
   before_action :authenticate_member!
+  before_action :active_member?
 
   def index
     @cart_item = CartItem.new

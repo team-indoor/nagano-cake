@@ -14,7 +14,7 @@ Admin.create!(
 )
 
 Category.create!(
-  [{name: "ケーキ",is_active: true},{name: "プリン",is_active: true},{name: "焼き菓子",is_active: true},{name: "ゼリー",is_active: true}]
+  [{name: "ケーキ",is_active: true},{name: "プリン",is_active: true},{name: "焼き菓子",is_active: true},{name: "キャンディ",is_active: true},{name: "ゼリー",is_active: true}]
 )
 
 # member #
@@ -177,8 +177,8 @@ Product.create!(
     {name:"ココアプリン",price: 400, is_saling: true, category_id: 2, introduction:"説明文"},
     {name:"クッキー（５枚）",price: 250, is_saling: true, category_id: 3, introduction:"説明文"},
     {name:"マカロン",price: 400, is_saling: true, category_id: 3, introduction:"説明文"},
-    {name:"あじさいゼリー",price: 700, is_saling: true, category_id: 4, introduction:"説明文"},
-    {name:"しゅわ！ソーダゼリー",price: 600, is_saling: true, category_id: 4, introduction:"説明文"}
+    {name:"あじさいゼリー",price: 700, is_saling: true, category_id: 5, introduction:"説明文"},
+    {name:"しゅわ！ソーダゼリー",price: 600, is_saling: true, category_id: 5, introduction:"説明文"}
   ]
 )
 
