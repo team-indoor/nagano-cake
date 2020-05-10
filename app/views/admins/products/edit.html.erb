@@ -1,4 +1,4 @@
-<h1 class="page-title">商品編集</h1>
+<mark>商品編集</mark>
 <%= form_for @product, url: admins_product_path(params[:id]) do |f| %>
   <div class="row">
     <div class="col-xs-4">
@@ -24,7 +24,7 @@
       </div>
       <div class="field form-group">
         <%= f.label :category_id, "ジャンル" %><br>
-        <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %>
+        <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control" %>
       </div>
       <div class="field form-group">
         <%= f.label :price, "税抜き価格" %>
@@ -32,7 +32,7 @@
       </div>
       <div class="field form-group">
         <%= f.label :is_saling, "販売ステータス" %><br>
-        <%= f.select :is_saling, {販売中: 1, 売り切れ: 0}, class: "form-control" %>
+        <%= f.select :is_saling, {販売中: true, 販売停止: false}, class: "form-control" %>
       </div>
     </div>
   </div>

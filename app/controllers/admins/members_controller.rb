@@ -2,11 +2,17 @@ class Admins::MembersController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-  	@members = Member.page(params[:page])
+    if params[:search].nil?
+      @members = Member.all.page(params[:page])
+    elsif params[:search].blank?
+      @members = Member.all.page(params[:page])
+    else
+      @members = Member.where("last_name like?", "%#{params[:search]}%" ).page(params[:page])
+    end
   end
 
   def show
-  	@member = Member.find(params[:id])
+    @member = Member.find(params[:id])
   end
 
   def edit
@@ -23,8 +29,13 @@ class Admins::MembersController < ApplicationController
     end
   end
 
-   private
-    def member_params
-        params.require(:member).permit(:last_name, :first_name, :kana_last_name, :kana_first_name, :email, :phone_number, :postal_code, :address, :is_active)
-    end
+  private
+  def member_params
+      params.require(:member).permit(:last_name, :first_name, :kana_last_name, :kana_first_name, :email, :phone_number, :postal_code, :address, :is_active)
+  end
+
+  def full_name
+
+  end
+
 end

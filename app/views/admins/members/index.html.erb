@@ -1,38 +1,42 @@
 <div class="row">
-<div class="col-xs-8 col-xs-offset-2">
+	<div class="col-xs-8 col-xs-offset-2">
 
-  <div class="mypage-title">
-    <mark style="font-size: 20px;">会員一覧</mark>
-  </div>
+		<div class="mypage-title">
+			<mark style="font-size: 20px;">会員一覧</mark>
+		</div>
 
-	<table class="table">
-		<thead>
-		  <tr bgcolor="#f5f5f5">
-		  	<th>会員ID</th>
-		  	<th>氏名</th>
-		  	<th>メールアドレス</th>
-		  	<th>ステータス</th>
-		  </tr>
-	    </thead>
-	    <% @members.each do |member| %>
-	    <tbody>
-	    	<tr>
-	    		<td><%= member.id %></td>
-	    		<td><%=link_to "#{member.last_name} #{member.first_name}", admins_member_path(member.id) %></td>
-	    		<td><%= member.email %></td>
-	    		<td>
-	    			<% if member.is_active == true %>
-	    			<p>有効</p>
-	    			<% else %>
-	    			<p>退会済</p>
-	    			<% end %>
-	    		</td>
-	    	</tr>
-	    <% end %>
-	    </tbody>
-    </table>
+		<table class="table">
+		<% if @members.any? %>
+			<thead>
+				<tr bgcolor="#f5f5f5">
+					<th>会員ID</th>
+					<th>氏名</th>
+					<th>メールアドレス</th>
+					<th>ステータス</th>
+				</tr>
+			</thead>
+			<% @members.each do |member| %>
+				<tbody>
+					<tr>
+						<td><%= member.id %></td>
+						<td><%=link_to "#{member.last_name} #{member.first_name}", admins_member_path(member.id) %></td>
+						<td><%= member.email %></td>
+						<td>
+							<% if member.is_active == true %>
+								<p>有効</p>
+							<% else %>
+								<p>退会済</p>
+							<% end %>
+						</td>
+					</tr>
+				</tbody>
+			<% end %>
+		<% else %>
+			<p>該当する会員は見つかりませんでした</p>
+		<% end %>
+		</table>
     <div id="page">
     <%= paginate @members, class: "paginate" %>
     </div>
-</div>
+	</div>
 </div>
