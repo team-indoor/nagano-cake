@@ -2,7 +2,13 @@ class Admins::ProductsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @products = Product.all.page(params[:page]).per(50)
+    if params[:search].nil?
+      @products = Product.all.page(params[:page]).per(50)
+    elsif params[:search].blank?
+      @products = Product.all.page(params[:page]).per(50)
+    else
+      @products = Product.where("name like?", "%#{params[:search]}%" ).page(params[:page]).per(50)
+    end
   end
 
   def show
@@ -15,10 +21,10 @@ class Admins::ProductsController < ApplicationController
 
   def create
     @product =  Product.new(product_params)
-    unless @product.category.is_active?
-      @product.update(is_saling: false)
-    end
     if @product.save
+      unless @product.category.is_active?
+        @product.update(is_saling: false)
+      end
       redirect_to admins_product_path(@product)
     else
       render :new
@@ -32,9 +38,16 @@ class Admins::ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     if product.update(product_params)
-      redirect_to admins_product_path(product)
+      if product.category.is_active?
+        redirect_to admins_product_path(product)
+      else
+        if product.is_saling?
+          product.update(is_saling: false)
+          redirect_to admins_product_path(product)
+        end
+      end
     else
-      render :edit
+      render "admins/product/edit"
     end
   end
 

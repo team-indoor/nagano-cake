@@ -1,9 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-light">
     <div class="container">
-      <div class="logo-box navber-brand">
-        <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
-      </div>
       <% if member_signed_in? %>
+        <div class="logo-box navber-brand">
+          <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
+        </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name"><%= display_header_name(current_member) %></li>
           <li class="header-link"><%= link_to "マイページ", member_path(current_member), class: "btn btn-default" %></li>
@@ -12,6 +12,9 @@
           <li class="header-link"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-default" %></li>
         </ul>
       <% elsif admin_signed_in? %>
+        <div class="logo-box navber-brand">
+          <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), admins_path %>
+        </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name">
             <%= current_admin.name %>
@@ -21,12 +24,12 @@
           <li class="admins-link"><%= link_to "注文履歴一覧", admins_orders_path, class: "btn btn-default" %></li>
           <li class="admins-link"><%= link_to "ジャンル一覧", admins_categories_path, class: "btn btn-default" %></li>
           <li class="admins-link"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %></li>
-          <form class="form-inline search-form">
-            <input class="form-control" type="search" placeholder="検索..." aria-label="検索...">
-            <button type="submit" class="btn btn-success btn-sm">検索</button>
-          </form>
+          <%= render "layouts/search_form" %>
         </ul>
       <% else %>
+        <div class="logo-box navber-brand">
+          <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
+        </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-link"><%= link_to "商品一覧", products_path, class: "btn btn-default" %></li>
           <li class="header-link"><%= link_to "新規登録", new_member_registration_path, class: "btn btn-default" %></li>

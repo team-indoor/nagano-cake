@@ -1,0 +1,18 @@
+<form class="form-inline search-form" name="search" action="<%= params[:controller].split("/")[1] %>">
+  <% if params[:controller].split("/")[1] == "members" %>
+    <input type="search" name="search" placeholder="苗字で検索...">
+  <% elsif params[:controller].split("/")[1] == "products" %>
+    <input type="search" name="search" placeholder="商品名で検索...">
+  <% elsif params[:controller].split("/")[1] == "orders" %>
+    <input type="search" name="search" placeholder="日付で検索..." disabled>
+  <% elsif params[:controller].split("/")[1] == "categories" %>
+    <input type="search" name="search" placeholder="ジャンル名で検索...">
+  <% else %>
+    <input type="search" name="search" placeholder="検索..." disabled>
+  <% end %>
+  <% if params[:controller].split("/")[1] == "members" || params[:controller].split("/")[1] == "products" || params[:controller].split("/")[1] == "orders" || params[:controller].split("/")[1] == "categories" %>
+    <button type="submit" class="btn btn-success btn-sm">検索</button>
+  <% else %>
+    <button type="submit" class="btn btn-success btn-sm" disabled>検索</button>
+  <% end %>
+</form>

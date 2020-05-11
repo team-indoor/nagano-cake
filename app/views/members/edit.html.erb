@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-9">
+  <div class="col-xs-10">
 
     <%= form_for @member, url: "/members/#{@member.id}" do |f| %>
       <%= render "layouts/error_message", title: @member %>
@@ -27,28 +27,32 @@
 
         <tr style="height:70px">
           <th class="form">メールアドレス</th>
-          <td colspan="4"><%= f.text_field :email, class: "form-control" %></td>
+          <td></td>
+          <td><%= f.text_field :email, class: "form-control" %></td>
         </tr> 
 
         <tr style="height:70px">
           <th class="form">郵便番号（ハイフンなし）</th>
-          <td colspan="4"><%= f.text_field :postal_code, class: "form-control" %></td>
+          <td></td>
+          <td><%= f.text_field :postal_code, class: "form-control" %></td>
         </tr> 
 
         <tr style="height:70px">
           <th class="form">住所</th>
-          <td colspan="4"><%= f.text_field :address, class: "form-control" %></td>
+          <td></td>
+          <td colspan="3"><%= f.text_field :address, class: "form-control" %></td>
         </tr> 
 
 
         <tr style="height:70px">
           <th class="form">電話番号（ハイフンなし）</th>
-          <td colspan="4"><%= f.text_field :phone_number, class: "form-control" %></td>
+          <td></td>
+          <td><%= f.text_field :phone_number, class: "form-control" %></td>
         </tr> 
 
       </table>
         <div class="button-box margin-30">
-          <%= f.submit '編集内容を保存する',class: 'btn btn-primary btn-lg', style:"margin-right:30px" %>
+          <%= f.submit '編集内容を保存する',class: 'btn btn-primary btn-lg', style:"margin-right:130px" %>
 
           <%= link_to "退会する", delete_member_path, class: 'btn btn-danger btn-lg'%>
 
