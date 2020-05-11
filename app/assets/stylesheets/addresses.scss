@@ -3,14 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //address_index
-.table-bordeless {
-	margin-top: 20px;
-}
 .table-bordered {
 	width: 650px;
 	margin-top: 20px;
+	vertical-align: middle;
 }
-.table-bordered tr {
+#head tr th {
+    height: 50px;
+    vertical-align: middle;
+}
+#body tr td {
     height: 50px;
     vertical-align: middle;
 }
@@ -23,13 +25,9 @@
 .error_explanation ul {
 	list-style: none;
 }
-.border table tr th {
-    height: 50px;
-    width: 180px;
-}
 
 //address_edit
-table tr th {
+.form {
 	height: 50px;
-	width: 150px;
+	width: 180px;
 }

@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :active_member?
 
   def index
-    @orders = Order.all
+    @orders = Order.all.order(created_at: "DESC")
   end
 
   def show
