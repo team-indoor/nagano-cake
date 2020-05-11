@@ -8,22 +8,18 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <table border="0">
       <tr>
-        <div class="login">
           <th>メールアドレス</th>
           <td style="width:500px">
             <% f.label :email %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </td>
-        </div>
       </tr>
       <tr>
-        <div class="login">
           <th>パスワード</th>
           <td style="width:500px">
             <% f.label :password %>
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
           </td>
-        </div>
       </tr>
     </table>
     <div style="float:right;">
