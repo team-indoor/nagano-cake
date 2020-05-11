@@ -24,7 +24,6 @@ RSpec.describe Order, type: :model do
       end
       it "カートに商品がない場合の注文" do
         @cart_item = nil
-        byebug
         expect(@order).to_not be_valid
       end
       it "合計金額がない" do

@@ -28,6 +28,9 @@ class OrdersController < ApplicationController
 
   def confirmation
     @order = Order.new
+    if params[:address] == "2"
+      Address.create!(postal_code: params[:new_postal_code], address: params[:new_address], reciever: params[:new_reciever], member_id: current_member.id)
+    end
     @cart_items = CartItem.where(member_id: current_member.id)
     @address = Address.where(member_id: current_member.id)
     @total_price = 0

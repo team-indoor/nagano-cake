@@ -1,7 +1,7 @@
 class Admins::OrdersController < ApplicationController
   PER = 10
   def index
-    @orders = Order.page(params[:page]).per(PER)
+    @orders = Order.all.order(created_at: :desc).page(params[:page]).per(PER)
     @orders_home = Kaminari.paginate_array(Order.where(created_at: Date.today.beginning_of_day..Date.today.end_of_day)).page(params[:page]).per(PER)
     @orders_member = Kaminari.paginate_array(Order.where(member_id: params[:member_id])).page(params[:page]).per(PER)
   end
