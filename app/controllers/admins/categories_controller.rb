@@ -1,6 +1,12 @@
 class Admins::CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    if params[:search].nil?
+      @categories = Category.all
+    elsif params[:search].blank?
+      @categories = Category.all
+    else
+      @categories = Category.where("name like?", "%#{params[:search]}%" )
+    end
     @category = Category.new
   end
 
