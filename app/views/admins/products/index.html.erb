@@ -1,9 +1,18 @@
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <h1>商品一覧</h1>
-    <div class="add">
-      <%= link_to "+", new_admins_product_path, class: "btn btn-default" %>
+  <div class="col-md-8 col-md-offset-2">
+
+    <div class="col-md-9">
+      <div style="margin: 0px 0px 30px 23px;">
+        <mark style="font-size: 20px;">商品一覧</mark>
+      </div>
     </div>
+
+    <div class="col-md-3">
+      <div class="add">
+        <%= link_to "+", new_admins_product_path, class: "btn btn-default" %>
+      </div>
+    </div>
+
     <table class="table table-inverse margin-30">
       <% if @products.any? %>
         <thead>
