@@ -1,28 +1,36 @@
 require 'test_helper'
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
+  setup do
+    @member = members(:member1)
+    sign_in @member
+    @order = orders(:order)
+  end
+
   test "should get index" do
-    get orders_index_url
+    get member_orders_path(@member)
     assert_response :success
   end
 
   test "should get show" do
-    get orders_show_url
+    get member_order_path(@member,@order)
     assert_response :success
   end
 
   test "should get new" do
-    get orders_new_url
+    get new_member_order_path(@member)
     assert_response :success
   end
 
   test "should get confirmation" do
-    get orders_confirmation_url
+    get confirmation_member_orders_path(@member)
     assert_response :success
   end
 
   test "should get fixed" do
-    get orders_fixed_url
+    get fixed_member_orders_path(@member)
     assert_response :success
   end
 
