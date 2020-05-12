@@ -2,9 +2,10 @@ class OrdersController < ApplicationController
   include OrdersHelper
   before_action :authenticate_member!
   before_action :active_member?
+  before_action :ensure_correct_member?
 
   def index
-    @orders = Order.all.order(created_at: "DESC")
+    @orders = Order.where(member_id: current_member.id).order(created_at: "DESC")
   end
 
   def show

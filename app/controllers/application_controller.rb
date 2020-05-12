@@ -10,6 +10,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def correct_member?
+    if current_member.id != Member.find(params[:id]).id
+      redirect_to root_path
+    end
+  end
+
+  def ensure_correct_member?
+    if current_member.id != Member.find(params[:member_id]).id
+      redirect_to root_path
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
