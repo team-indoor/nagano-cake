@@ -6,24 +6,20 @@
     </div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <table class="table table-borderless">
+    <table border="0">
       <tr>
-        <div class="field">
           <th>メールアドレス</th>
-          <td>
+          <td style="width:500px">
             <% f.label :email %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </td>
-        </div>
       </tr>
       <tr>
-        <div class="field">
           <th>パスワード</th>
-          <td>
+          <td style="width:500px">
             <% f.label :password %>
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
           </td>
-        </div>
       </tr>
     </table>
     <div style="float:right;">
@@ -32,7 +28,7 @@
     <% end %>
     </div>
     <div class="actions">
-      <%= f.submit "ログイン", class:"btn btn-primary" %>
+      <%= f.submit "ログイン", class:"btn btn-primary", style:"width:150px" %>
     </div>
     <% end %>
 
