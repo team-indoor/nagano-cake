@@ -2,7 +2,7 @@
 
 order:
   member: "member1"
-  total_price: 
+  total_price: 100
   postage: 800
   payment: 1
   reciever: "reciever"

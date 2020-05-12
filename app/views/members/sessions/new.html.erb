@@ -6,30 +6,30 @@
     </div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <table border="0">
-      <tr>
+      <table border="0">
+        <tr>
           <th>メールアドレス</th>
           <td style="width:500px">
             <% f.label :email %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </td>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
           <th>パスワード</th>
           <td style="width:500px">
             <% f.label :password %>
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
           </td>
-      </tr>
-    </table>
-    <div style="float:right;">
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
-    <% end %>
-    </div>
-    <div class="actions">
-      <%= f.submit "ログイン", class:"btn btn-primary", style:"width:150px" %>
-    </div>
+        </tr>
+      </table>
+      <div style="float:right;">
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <%= link_to "=>パスワードを忘れた方はこちら", "#" %><br />
+        <% end %>
+      </div>
+      <div class="actions">
+        <%= f.submit "ログイン", class:"btn btn-primary", style:"width:150px" %>
+      </div>
     <% end %>
 
     <div class="sign_up_page">
@@ -39,6 +39,4 @@
 
 
   </div>
-</div>
-<div class="col-xs-1"></div>
 </div>

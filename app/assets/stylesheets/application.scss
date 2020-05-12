@@ -30,23 +30,28 @@ textarea{
   border:#fff solid;
 }
 
+body{
+  background-image: url("background.jpg");
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+}
+
 .navbar{
-  background-color:white;
   border-bottom:3px solid #eee;
 }
 
-.pagination>li>a { 
-  border: none;              
-  color: #696969;   
+.pagination>li>a {
+  border: none;
+  color: #696969;
 }
 
-.pagination>.active>a {     
+.pagination>.active>a {
   background: #93c9ff;
-  border-radius: 3px;     
+  border-radius: 3px;
 }
 
-.pagination>li>a:hover {        
-  border-radius: 15px;   
+.pagination>li>a:hover {
+  border-radius: 15px;
 }
 
 .actions {
