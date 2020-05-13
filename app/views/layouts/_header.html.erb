@@ -26,6 +26,10 @@
           <li class="admins-link"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %></li>
           <%= render "layouts/search_form" %>
         </ul>
+      <% elsif params[:controller] == "admins/sessions" %>
+        <div class="logo-box navber-brand">
+          <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
+        </div>
       <% else %>
         <div class="logo-box navber-brand">
           <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>

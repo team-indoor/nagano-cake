@@ -52,13 +52,23 @@
   @extend .form-group;
 }
 
+.btn-s{
+  padding: 7px 15px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 6px;
+}
+
+
 
 
 /* footer */
 footer{
+  width:100%;
   margin-top:50px;
   height:50px;
   text-align: center;
+  border-top: solid 3px #eee;
   p{
     line-height:50px;
   }

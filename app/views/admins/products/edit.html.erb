@@ -1,7 +1,7 @@
 <mark>商品編集</mark>
-<%= form_for @product, url: admins_product_path(params[:id]) do |f| %>
-  <div class="row">
-    <div class="col-xs-4">
+<div class="row">
+  <div class="col-xs-4">
+    <%= form_for @product, url: admins_product_path(params[:id]) do |f| %>
       <div class="image-form">
         <div class="image-box">
           <% if @product.image_id.blank? %>
@@ -12,35 +12,35 @@
         </div>
         <%= f.attachment_field :image %>
       </div>
-    </div>
-    <div class="col-xs-5">
-      <div class="field form-group">
-        <%= f.label :name, "商品名" %>
-        <%= f.text_field :name, class: "form-control" %>
+      <div class="col-xs-5">
+        <div class="field form-group">
+          <%= f.label :name, "商品名" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :introduction, "商品紹介" %>
+          <%= f.text_area :introduction, class: "form-control" %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :category_id, "ジャンル" %><br>
+          <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control" %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :price, "税抜き価格" %>
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :is_saling, "販売ステータス" %><br>
+          <%= f.select :is_saling, {販売中: true, 販売停止: false}, class: "form-control" %>
+        </div>
       </div>
-      <div class="field form-group">
-        <%= f.label :introduction, "商品紹介" %>
-        <%= f.text_area :introduction, class: "form-control" %>
+      <div class="row">
+        <div class="col-xs-2 col-xs-offset-10">
+          <div class="action">
+            <%= f.submit "編集", class: "btn btn-primary btn-lg" %>
+          </div>
+        </div>
       </div>
-      <div class="field form-group">
-        <%= f.label :category_id, "ジャンル" %><br>
-        <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control" %>
-      </div>
-      <div class="field form-group">
-        <%= f.label :price, "税抜き価格" %>
-        <%= f.text_field :price, class: "form-control" %>
-      </div>
-      <div class="field form-group">
-        <%= f.label :is_saling, "販売ステータス" %><br>
-        <%= f.select :is_saling, {販売中: true, 販売停止: false}, class: "form-control" %>
-      </div>
-    </div>
+    <% end %>
   </div>
-  <div class="row">
-    <div class="col-xs-2 col-xs-offset-10">
-      <div class="action">
-        <%= f.submit "編集", class: "btn btn-primary btn-lg" %>
-      </div>
-    </div>
-  </div>
-<% end %>
+</div>

@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  is_active: false
+category:
+  name: "catego"
+  is_active: true
 
-two:
-  name: MyString
-  is_active: false
+

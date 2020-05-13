@@ -1,7 +1,13 @@
 class Admins::OrdersController < ApplicationController
   PER = 10
   def index
-    @orders = Order.page(params[:page]).per(PER)
+    if params[:search].nil?
+      @orders = Order.all.order(created_at: :desc).page(params[:page]).per(PER)
+    elsif params[:search].blank?
+      @orders = Order.all.order(created_at: :desc).page(params[:page]).per(PER)
+    else
+      @orders = Order.where("created_at like?", "%#{params[:search]}%" ).order(created_at: :desc).page(params[:page]).per(PER)
+    end
     @orders_home = Kaminari.paginate_array(Order.where(created_at: Date.today.beginning_of_day..Date.today.end_of_day)).page(params[:page]).per(PER)
     @orders_member = Kaminari.paginate_array(Order.where(member_id: params[:member_id])).page(params[:page]).per(PER)
   end

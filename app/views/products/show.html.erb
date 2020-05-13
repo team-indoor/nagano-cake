@@ -1,18 +1,6 @@
 <div class="row margin-30">
   <div class="col-xs-2">
-    <table class="table category">
-      <thead>
-        <tr><th class="active center" style="font-size:17px">ジャンル検索</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="category-item"><%= link_to "全ジャンル", products_path %></td></tr>
-        <% @categories.each do |category| %>
-          <tr>
-            <td id="category-item"><%= link_to category.name, products_path(category_id:category.id) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render "layouts/category_search" %>
   </div>
   <div class="col-xs-5">
     <h2 class="index-title">商品詳細</h2>

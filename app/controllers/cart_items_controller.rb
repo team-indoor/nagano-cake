@@ -22,6 +22,10 @@ class CartItemsController < ApplicationController
         redirect_to member_cart_items_path
       else
         @cart_items = CartItem.where(member_id: current_member.id)
+        @total_price = 0
+        @cart_items.each do |cart_item|
+          @total_price += cart_item.amount * tax_included_price(cart_item.product.price)
+        end
         render "index"
       end
   end

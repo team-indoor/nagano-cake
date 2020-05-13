@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Admins", type: :request do
+  include Devise::Test::IntegrationHelpers
 
   let(:admin){Admin.create(id: 1, name: "管理者１", email: "admin@mail.com", password: "admin1", password_confirmation: "admin1")}
   let(:member){Member.create(id: 1, last_name: "田中", first_name: "太郎", kana_last_name: "タナカ", email: "kkk@mail.com",
@@ -15,6 +16,7 @@ RSpec.describe "Admins", type: :request do
   describe "管理者ログインしていない状態で各ページにいけないことを確認" do
     context "管理者ログイン状態でない場合、ログイン画面に遷移" do
       it "トップページ" do
+        sign_in(:admin)
         get admins_path
         expect(response).to redirect_to new_admin_session_path
       end

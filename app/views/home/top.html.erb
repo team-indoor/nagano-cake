@@ -1,24 +1,16 @@
 <div class="row">
   <div class="col-xs-2">
-    <div class="category border">
-      <div class="c-search">
-        <h4>ジャンル検索</h4>
-      </div>
-      <% @categories.each do |category| %>
-      <div class="c-name">
-        <p><%= link_to category.name, products_path(category_id:category.id) %></p>
-      </div>
-      <% end %>
-    </div>
-
+    <%= render "layouts/category_search" %>
   </div>
   <div class="col-xs-9">
     <div class="mv-image">
       <div class="description">
-        <p>ようこそ、NaganoCakeへ！</p>
-        <p>このサイトは、ケーキ販売のECサイトになります。</p>
-        <p>会員でない方も商品の閲覧はできますが、</p>
-        <p>購入には会員登録が必要になります。</p>
+        <p>
+          ようこそ、NaganoCakeへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
       </div>
     </div>
   </div>
@@ -29,15 +21,20 @@
     <h2 class="product-title">オススメ商品</h2><br>
     <div class="p-index">
       <% @products.first(4).shuffle.each do |product| %>
-      <div class="product">
-        <div class="product-index-image">
-              <%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpg', fallback: "no-image.jpg", size:'150x150' %>
-            </div>
-        <div class="p-info">
-          <p><%= link_to product.name, product_path(product) %></p>
-          <p>¥<%= tax_included_price(product.price) %></p>
+        <div class="product-index-box">
+          <div class="product-index-image">
+            <%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpg', fallback: "no-image.jpg", size:'150x150' %>
+          </div>
+          <div class="product-index-info">
+            <p><%= link_to product.name, product_path(product) %></p>
+            <p>
+              ¥<%= tax_included_price(product.price) %><span> (税込)</span>
+              <% unless product.is_saling? %>
+                <span style="color:red">売り切れ中</span>
+              <% end %>
+            </p>
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
 
