@@ -85,6 +85,11 @@
 </div>
 
 <script>
+  window.onpageshow = function() {
+    document.form["payment_0"].checked = true;
+    document.form["address_0"].checked = true;
+  }
+
   function active() {
     if (document.form["address"][0].checked) {
       document.form["address"].disabled = false;
