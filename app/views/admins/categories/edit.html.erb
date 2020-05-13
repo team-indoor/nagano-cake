@@ -4,15 +4,19 @@
 
 <div class="row">
   <div class="col-xs-6 margin-30">
-    <div class="form-horizontal">
-      <%= form_for @category, url: admins_category_path(@category) do |f| %>
-        <%= render "layouts/error_message", title: @category %>
+    <%= render "layouts/error_message", title: @category %>
+    <%= form_for @category, url: admins_category_path(@category) do |f| %>
+      <div class="form-horizontal", style="margin-right: 15px; padding-top: 7px; ">
         <%= f.label :name, "ジャンル" %>
-        <%= f.text_field :name %>
-        <label><%= f.radio_button :is_active, true %> 有効 </label>
-        <label><%= f.radio_button :is_active, false %> 無効 </label>
+      </div>
+      <div class="form-horizontal", style="margin-right: 10px;">
+        <%= f.text_field :name, class: "form-control", style: "width:150px" %>
+      </div>
+      <div class="form-horizontal">
+        <label style="margin-right: 10px;"><%= f.radio_button :is_active, true %> 有効 </label>
+        <label style="margin-right: 10px;"><%= f.radio_button :is_active, false %> 無効 </label>
         <%= f.submit "変更を保存する", class: "btn btn-primary btn-md" %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

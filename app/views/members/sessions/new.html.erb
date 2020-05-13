@@ -24,7 +24,7 @@
       </table>
       <div style="float:right;">
         <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "=>パスワードを忘れた方はこちら", "#" %><br />
+          <%= link_to "=>パスワードを忘れた方はこちら", new_member_password_path %><br />
         <% end %>
       </div>
       <div class="actions">

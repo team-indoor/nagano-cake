@@ -1,7 +1,11 @@
-<mark>商品編集</mark>
+<div class="mypage-title">
+  <mark style="font-size: 20px;">商品編集</mark>
+</div>
+
 <div class="row">
-  <div class="col-xs-4">
-    <%= form_for @product, url: admins_product_path(params[:id]), method: :patch do |f| %>
+
+  <%= form_for @product, url: admins_product_path(params[:id]), method: :patch do |f| %>
+  <div class="col-xs-5 coa-xs-offset-1">
       <div class="image-form">
         <div class="image-box">
           <% if @product.image_id.blank? %>
@@ -10,9 +14,12 @@
             <%= attachment_image_tag @product, :image, size: "350x250" %>
           <% end %>
         </div>
-        <%= f.attachment_field :image %>
+        <%= f.attachment_field :image, style:"margin-left:80px" %>
       </div>
+  </div>
+
       <div class="col-xs-5">
+        <%= render "layouts/error_message", title:@product %>
         <div class="field form-group">
           <%= f.label :name, "商品名" %>
           <%= f.text_field :name, class: "form-control" %>
@@ -42,5 +49,4 @@
         </div>
       </div>
     <% end %>
-  </div>
 </div>

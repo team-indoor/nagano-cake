@@ -59,4 +59,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+
+  host = 'samplehost'
+  Rails.application.routes.default_url_options[:host] = host
 end
