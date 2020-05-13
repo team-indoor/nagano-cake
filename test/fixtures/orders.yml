@@ -2,11 +2,11 @@
 
 order:
   member: "member1"
-  total_price: 
+  total_price: 1500
   postage: 800
   payment: 1
   reciever: "reciever"
   postal_code: "1234567"
   address: "tokyo"
-  order_status: 1
+  order_status: 0
 

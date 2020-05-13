@@ -22,10 +22,9 @@ class Admins::MembersController < ApplicationController
   def update
   	@member = Member.find(params[:id])
   	if @member.update(member_params)
-  	redirect_to admins_member_path(@member.id)
+  	  redirect_to admins_member_path(@member.id)
     else
-       @member = Member.find(params[:id])
-       render action: :edit
+      render action: :edit
     end
   end
 

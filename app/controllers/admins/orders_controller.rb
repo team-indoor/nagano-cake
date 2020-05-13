@@ -8,8 +8,8 @@ class Admins::OrdersController < ApplicationController
     else
       @orders = Order.where("created_at like?", "%#{params[:search]}%" ).order(created_at: :desc).page(params[:page]).per(PER)
     end
-    @orders_home = Kaminari.paginate_array(Order.where(created_at: Date.today.beginning_of_day..Date.today.end_of_day)).page(params[:page]).per(PER)
-    @orders_member = Kaminari.paginate_array(Order.where(member_id: params[:member_id])).page(params[:page]).per(PER)
+    @orders_home = Kaminari.paginate_array(Order.where(created_at: Date.today.beginning_of_day..Date.today.end_of_day).reverse).page(params[:page]).per(PER)
+    @orders_member = Kaminari.paginate_array(Order.where(member_id: params[:member_id]).reverse).page(params[:page]).per(PER)
   end
 
   def show

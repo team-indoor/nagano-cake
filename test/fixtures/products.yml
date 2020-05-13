@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 product1:
-  category: "category1"
-  name: "producct"
+  category: "category"
+  name: "ケーキ"
   price: 300
-  introduction: "MyText"
+  introduction: "説明"
   is_saling: true
 
