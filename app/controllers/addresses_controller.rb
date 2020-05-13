@@ -1,10 +1,11 @@
 class AddressesController < ApplicationController
   before_action :authenticate_member!
   before_action :active_member?
+  before_action :ensure_correct_member?
   
   def index
     @address = Address.new
-    @addresses = Address.all
+    @addresses = Address.where(member_id: current_member.id)
     @member = Member.find(params[:member_id])
   end
 

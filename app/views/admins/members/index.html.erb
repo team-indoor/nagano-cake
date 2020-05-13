@@ -1,18 +1,18 @@
 <div class="row">
 	<div class="col-xs-8 col-xs-offset-2">
 
-		<div class="mypage-title">
+		<div class="mypage-title" style="margin-left: 5%;">
 			<mark style="font-size: 20px;">会員一覧</mark>
 		</div>
 
-		<table class="table">
+		<table class="table table-inverse margin-30">
 		<% if @members.any? %>
 			<thead>
-				<tr bgcolor="#f5f5f5">
-					<th>会員ID</th>
-					<th>氏名</th>
-					<th>メールアドレス</th>
-					<th>ステータス</th>
+				<tr class="active">
+					<th style="width:10%">会員ID</th>
+					<th style="width:30%">氏名</th>
+					<th style="width:30%">メールアドレス</th>
+					<th style="width:30%">ステータス</th>
 				</tr>
 			</thead>
 			<% @members.each do |member| %>

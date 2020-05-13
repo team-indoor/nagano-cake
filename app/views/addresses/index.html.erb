@@ -1,72 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-<body>
+<%= javascript_include_tag "application" %>
 
-  <div class="edit-title">
-    <mark style="font-size: 20px;">配送先登録/一覧</mark>
-  </div>
+<div class="edit-title">
+  <mark style="font-size: 20px;">配送先登録/一覧</mark>
+</div>
 
-  <div class="row">
+<div class="row">
   <div class="col-xs-9">
 
     <%= render "layouts/error_message", title: @address %>
 
     <% if current_member.is_active? %>
-    <%= form_for @address, :url => {:action => :index} do |f| %>
-
+      <%= form_for @address, :url => {:action => :index} do |f| %>
       <table border="0">
-
-      	<tr>
+        <tr>
           <th class="form">郵便番号（ハイフンなし）</th>
           <td><%= f.text_field :postal_code, autocomplete: "postal-code", class: "form-control"%></td>
         </tr>
 
         <tr>
-    	    <th class="form">住所</th>
-    	    <td><%= f.text_field :address, :size=>"60", autocomplete: "address", class: "form-control"%></td>
+          <th class="form">住所</th>
+          <td><%= f.text_field :address, :size=>"60", autocomplete: "address", class: "form-control"%></td>
         </tr>
 
         <tr>
-    	    <th class="form">宛名</th>
-    	    <td><%= f.text_field :reciever, autocomplete: "reciever", class: "form-control"%></td>
+          <th class="form">宛名</th>
+          <td><%= f.text_field :reciever, autocomplete: "reciever", class: "form-control"%></td>
         </tr>
-
       </table>
-    
-    <div class="button">
-    <%= f.submit("登録する",class: 'btn btn-success') %>
-    </div>
 
-    <% end %>
+      <div class="button">
+        <%= f.submit("登録する",class: 'btn btn-success') %>
+      </div>
+
+      <% end %>
     <% end %>
 
     <table class="table table-bordered">
       <thead id="head">
-    		<tr>
-  			<th bgcolor="#f5f5f5", style="width:50px">郵便番号</th>
-  			<th bgcolor="#f5f5f5", style="width:100px">住所</th>
-  			<th bgcolor="#f5f5f5", style="width:50px">宛名</th>
-  			<th bgcolor="#f5f5f5", style="width:80px"></th>
-    		</tr>
-    	</thead>
+        <tr>
+          <th bgcolor="#f5f5f5" , style="width:50px">郵便番号</th>
+          <th bgcolor="#f5f5f5" , style="width:100px">住所</th>
+          <th bgcolor="#f5f5f5" , style="width:50px">宛名</th>
+          <th bgcolor="#f5f5f5" , style="width:80px"></th>
+        </tr>
+      </thead>
       <% @addresses.each do |address| %>
-    	<tbody id="body">
-  		  <tr>
-  		  	<td><%= address.postal_code %></td>
-			    <td><%= address.address %></td>
-			    <td><%= address.reciever %></td>
-			    <td id="link">
-			  	<%= link_to "編集する", edit_member_address_path(@member.id,address.id), class: "btn btn-primary" %>
-			  	<%=link_to "削除する", member_address_path(@member.id,address.id), method: :delete, "data-confirm" => "本当に削除しても大丈夫ですか？", class: "btn btn-danger" %>
-			    </td>
-	  	  </tr>
-    	</tbody>
+      <tbody id="body">
+        <tr>
+          <td><%= address.postal_code %></td>
+          <td><%= address.address %></td>
+          <td><%= address.reciever %></td>
+          <td id="link">
+            <%= link_to "編集する", edit_member_address_path(@member.id,address.id), class: "btn btn-primary" %>
+            <%=link_to "削除する", member_address_path(@member.id,address.id), method: :delete, "data-confirm" => "本当に削除しても大丈夫ですか？", class: "btn btn-danger" %>
+          </td>
+        </tr>
+      </tbody>
       <% end %>
     </table>
 
   </div>
-  </div>
-</body>
+</div>
