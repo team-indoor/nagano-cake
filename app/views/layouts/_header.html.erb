@@ -2,7 +2,7 @@
     <div class="container">
       <% if member_signed_in? %>
         <div class="logo-box navber-brand">
-          <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
+          <%=link_to image_tag("logo.png", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name"><%= display_header_name(current_member) %></li>
@@ -13,7 +13,7 @@
         </ul>
       <% elsif admin_signed_in? %>
         <div class="logo-box navber-brand">
-          <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), admins_path %>
+          <%=link_to image_tag("logo.png", alt:"ながのCAKE", width:"400px", height:"120px"), admins_path %>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name">
@@ -28,11 +28,11 @@
         </ul>
       <% elsif params[:controller] == "admins/sessions" %>
         <div class="logo-box navber-brand">
-          <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
+          <%=link_to image_tag("logo.png", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
         </div>
       <% else %>
         <div class="logo-box navber-brand">
-          <%=link_to image_tag("logo.jpg", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
+          <%=link_to image_tag("logo.png", alt:"ながのCAKE", width:"400px", height:"120px"), root_path %>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-link"><%= link_to "商品一覧", products_path, class: "btn btn-default" %></li>

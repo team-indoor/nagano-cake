@@ -16,13 +16,13 @@
       </thead>
 
       <tbody>
-      <% if params[:name].nil? %>
-      <%= render 'admins/orders/index_each', orders: @orders %>
-      <% elsif params[:name] == "today" %>
-      <%= render 'admins/orders/index_each', orders: @orders_home %>
-      <% elsif params[:name] == "member" %>
-      <%= render 'admins/orders/index_each', orders: @orders_member %>
-      <% end %>
+        <% if params[:name].nil? %>
+          <%= render 'admins/orders/index_each', orders: @orders %>
+        <% elsif params[:name] == "today" %>
+          <%= render 'admins/orders/index_each', orders: @orders_home %>
+        <% elsif params[:name] == "member" %>
+          <%= render 'admins/orders/index_each', orders: @orders_member %>
+        <% end %>
       </tbody>
     </table>
     <% if params[:name].nil? %>

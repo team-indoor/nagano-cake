@@ -77,4 +77,5 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'rails-i18n'
-
+gem 'devise-i18n'
+gem 'devise-i18n-views'
