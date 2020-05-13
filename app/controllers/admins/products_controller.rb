@@ -36,18 +36,18 @@ class Admins::ProductsController < ApplicationController
   end
 
   def update
-    product = Product.find(params[:id])
-    if product.update(product_params)
-      if product.category.is_active?
-        redirect_to admins_product_path(product)
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      if @product.category.is_active?
+        redirect_to admins_product_path(@product)
       else
-        if product.is_saling?
-          product.update(is_saling: false)
-          redirect_to admins_product_path(product)
+        if @product.is_saling?
+          @product.update(is_saling: false)
+          redirect_to admins_product_path(@product)
         end
       end
     else
-      render "admins/product/edit"
+      render :edit
     end
   end
 

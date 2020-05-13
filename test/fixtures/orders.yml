@@ -8,5 +8,5 @@ order:
   reciever: "reciever"
   postal_code: "1234567"
   address: "tokyo"
-  order_status: 1
+  order_status: 0
 

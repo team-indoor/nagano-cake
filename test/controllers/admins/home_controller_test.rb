@@ -6,9 +6,9 @@ class Admins::HomeControllerTest < ActionDispatch::IntegrationTest
   setup do
     sign_in admins(:admin)
   end
-  test "should get top" do
+  test "top page" do
     get admins_path
-    assert_response :success
+    assert_template "home/top"
+    assert_select "h1.order-count", "本日の注文数　1　件"
   end
-
 end

@@ -1,7 +1,7 @@
 <mark>商品編集</mark>
 <div class="row">
   <div class="col-xs-4">
-    <%= form_for @product, url: admins_product_path(params[:id]) do |f| %>
+    <%= form_for @product, url: admins_product_path(params[:id]), method: :patch do |f| %>
       <div class="image-form">
         <div class="image-box">
           <% if @product.image_id.blank? %>

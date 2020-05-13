@@ -20,14 +20,17 @@ class Admins::CategoriesController < ApplicationController
   end
 
   def update
-    category = Category.find(params[:id])
-    category.update(category_params)
-    unless category.is_active?
-      category.products.each do |product|
-        product.update(is_saling: false)
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      unless @category.is_active?
+        @category.products.each do |product|
+          product.update(is_saling: false)
+        end
       end
+    else
+      render :edit
     end
-    redirect_to admins_categories_url
+    
   end
 
   private
