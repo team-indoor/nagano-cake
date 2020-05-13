@@ -7,3 +7,16 @@ product1:
   introduction: "説明"
   is_saling: true
 
+product2:
+  category: "category"
+  name: "焼き菓子"
+  price: 200
+  introduction: "説明"
+  is_saling: true
+
+product3:
+  category: "category"
+  name: "プリン"
+  price: 100
+  introduction: "説明"
+  is_saling: true
