@@ -5,10 +5,14 @@ class CartItemsController < ApplicationController
 
   def index
     @cart_item = CartItem.new
-    @cart_items = CartItem.where(member_id: current_member.id)
-    @total_price = 0
-    @cart_items.each do |cart_item|
-      @total_price += cart_item.amount * tax_included_price(cart_item.product.price)
+    if params[:member_id] == current_member.id.to_s
+      @cart_items = CartItem.where(member_id: params[:member_id])
+      @total_price = 0
+      @cart_items.each do |cart_item|
+        @total_price += cart_item.amount * tax_included_price(cart_item.product.price)
+      end
+    else
+      redirect_to root_path
     end
   end
 
