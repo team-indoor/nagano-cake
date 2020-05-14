@@ -1,4 +1,5 @@
 class Admins::OrdersController < ApplicationController
+  before_action :authenticate_admin!
   PER = 10
   def index
     if params[:search].nil?

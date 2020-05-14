@@ -44,6 +44,8 @@ class Admins::ProductsController < ApplicationController
         if @product.is_saling?
           @product.update(is_saling: false)
           redirect_to admins_product_path(@product)
+        else
+          redirect_to admins_product_path(@product)
         end
       end
     else

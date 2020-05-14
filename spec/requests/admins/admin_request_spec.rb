@@ -16,7 +16,6 @@ RSpec.describe "Admins", type: :request do
   describe "管理者ログインしていない状態で各ページにいけないことを確認" do
     context "管理者ログイン状態でない場合、ログイン画面に遷移" do
       it "トップページ" do
-        sign_in(:admin)
         get admins_path
         expect(response).to redirect_to new_admin_session_path
       end
