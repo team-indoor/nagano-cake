@@ -33,6 +33,8 @@ class Admins::CategoriesController < ApplicationController
           product.update(is_saling: false)
         end
         redirect_to admins_categories_path
+      else
+        redirect_to admins_categories_path
       end
     else
       @categories = Category.all
