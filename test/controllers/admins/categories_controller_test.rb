@@ -24,7 +24,7 @@ class Admins::CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_difference "Category.count", 1 do
       post admins_categories_path, params: { category: { name:  "アイス", is_active: true } }
     end
-    assert_redirected_to admins_categories_path
+    assert_redirected_to admins_categories_url
   end
 
   test "ジャンル新規追加（失敗）" do
@@ -39,13 +39,13 @@ class Admins::CategoriesControllerTest < ActionDispatch::IntegrationTest
     get edit_admins_category_path(@category)
     assert_template "categories/edit"
     patch admins_category_path(@category), params: { category: { name:  "アイス" } }
-    assert_redirected_to admins_categories_path
+    assert_redirected_to admins_categories_url
   end
 
   test "ジャンル編集（失敗）" do
     get edit_admins_category_path(@category)
     assert_template "categories/edit"
-    patch admins_category_path, params: { category: { name:  "" } }
+    patch admins_category_path(@category), params: { category: { name:  " " } }
     assert_select "div", "入力内容を確認してください"
     assert_template "categories/edit"
   end
