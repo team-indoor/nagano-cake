@@ -27,14 +27,6 @@ RSpec.describe Product, type: :model do
         @product.price = " "
         expect(@product).to_not be_valid
       end
-      it "0円" do
-        @product.price = 0
-        expect(@product).to_not be_valid
-      end
-      it "数値以外" do
-        @product.price = "百円"
-        expect(@product).to_not be_valid
-      end
     end
   end
 

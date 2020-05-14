@@ -7,12 +7,12 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :last_name, presence: true, length: { maximum: 5 }
-  validates :first_name, presence: true, length: { maximum: 5 }
+  validates :last_name, presence: true, length: { maximum: 20 }
+  validates :first_name, presence: true, length: { maximum: 20 }
   
 
-  validates :kana_last_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }, length: { maximum: 10 }
-  validates :kana_first_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}, length: { maximum: 10 }
+  validates :kana_last_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/ }, length: { maximum: 20 }
+  validates :kana_first_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}, length: { maximum: 20 }
   validates :postal_code, presence: true, length: { is: 7 }, numericality: { only_integer: true }
   validates :address, presence: true
   validates :phone_number, presence: true, numericality: { only_integer: true }

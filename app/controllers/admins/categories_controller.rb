@@ -1,4 +1,5 @@
 class Admins::CategoriesController < ApplicationController
+  before_action :authenticate_admin!
   def index
     if params[:search].nil?
       @categories = Category.all

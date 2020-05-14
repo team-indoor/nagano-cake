@@ -15,10 +15,6 @@ RSpec.describe Address, type: :model do
         @member = create(:member)
         @address = build(:address, member_id: @member.id)
       end
-      it "退会済みのユーザーの配送先登録" do
-        @member.update(is_active: false)
-        expect(@address).to_not be_valid
-      end
       it "郵便番号が空欄" do
         @address.update(postal_code: " ")
         expect(@address).to_not be_valid
