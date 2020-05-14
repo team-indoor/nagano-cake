@@ -1,4 +1,7 @@
-<mark>商品詳細</mark>
+<div class="mypage-title">
+  <mark style="font-size: 20px;">商品詳細</mark>
+</div>
+
 <div class="row">
   <div class="col-xs-5 coa-xs-offset-1">
     <div class="image-box">
@@ -10,25 +13,26 @@
     </div>
   </div>
   <div class="col-xs-5">
-    <table class="table margin-30">
-      <tr class="borderless">
-        <td style="width:40%">商品名</td>
+    <div class="table margin-30">
+      <table border="0">
+      <tr>
+        <th style="width:200px">商品名</th>
         <td style="font-size:20px"><%= @product.name %></td>
       </tr>
-      <tr class="borderless">
-        <td>商品説明</td>
+      <tr>
+        <th>商品説明</th>
         <td><%= @product.introduction %></td>
       </tr>
-      <tr class="borderless">
-        <td>ジャンル</td>
+      <tr>
+        <th>ジャンル</th>
         <td style="font-size:20px"><%= @product.category.name %></td>
       </tr>
-      <tr class="borderless">
-        <td>税込価格(税抜き価格)</td>
+      <tr>
+        <th>税込価格(税抜き価格)</th>
         <td style="font-size:20px">¥ <%= tax_included_price(@product.price).to_i %>　(<%= @product.price %>）</td>
       </tr>
-      <tr class="borderless">
-        <td>販売ステータス</td>
+      <tr>
+        <th>販売ステータス</th>
         <td style="font-size:20px">
           <% if @product.is_saling? %>
             販売中
@@ -37,7 +41,8 @@
           <% end %>
         </td>
       </tr>
-    </table>
+      </table>
+    </div>
   </div>
 </div>
 <div class="row">

@@ -3,28 +3,29 @@
     <div class="cart-title" style="margin-left: 5%;">
       <mark style="font-size: 20px;">注文履歴詳細</mark>
     </div>
-    <table class="table margin-30">
-      <tr class="borderless">
-        <td style="width:40%">
+    <div class="table margin-30">
+      <table border="0">
+      <tr>
+        <th style="width:40%">
           <p style="font-size:20px;">購入者</p>
-        </td>
+        </th>
         <% @member.each do |member|%>
         <td style="font-size:20px"><%=link_to "#{member.last_name} #{member.first_name}" ,admins_member_path(@order.member_id) %></td>
         <% end %>
       </tr>
-      <tr class="borderless">
-        <td>
+      <tr>
+        <th>
           <p style="font-size:20px;">配送先</p>
-        </td>
+        </th>
         <td>
           <p style="font-size:20px;"><%= "〒#{@order.postal_code} #{@order.address}" %><br>
             <%= "#{@order.reciever}" %></p>
         </td>
       </tr>
-      <tr class="borderless">
-        <td>
+      <tr>
+        <th>
           <p style="font-size:20px;">支払方法</p>
-        </td>
+        </th>
         <td style="font-size:20px">
           <% if @order.payment == 0 %>
           <p>クレジットカード</p>
@@ -33,10 +34,10 @@
           <% end %>
         </td>
       </tr>
-      <tr class="borderless">
-        <td>
+      <tr>
+        <th>
           <p style="font-size:20px;">注文ステータス</p>
-        </td>
+        </th>
         <td>
           <%= form_for @order, url: admins_order_path,method: :patch do |f| %>
           <%= f.select :order_status, [
@@ -47,6 +48,7 @@
         </td>
       </tr>
     </table>
+  </div>
   </div>
 </div>
 

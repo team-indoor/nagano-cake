@@ -156,7 +156,7 @@ Member.create!(
       first_name: "孝明",
       kana_last_name: "コバヤシ",
       kana_first_name: "タカアキ",
-      email: "test11@mail.com",
+      email: "takoba0426@gmail.com",
       password: "test11111111",
       password_confirmation: "test11111111",
       phone_number: "08033333333",
