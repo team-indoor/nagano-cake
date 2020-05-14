@@ -5,3 +5,7 @@ cart_item:
   product: "product1"
   amount: 2
 
+cart_item2:
+  member: "member1"
+  product: "product2"
+  amount: 4
