@@ -35,12 +35,6 @@ class Admins::CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_template "categories/index"
   end
 
-  test "ジャンル編集（成功）" do
-    get edit_admins_category_path(@category)
-    assert_template "categories/edit"
-    patch admins_category_path(@category), params: { category: { name:  "アイス" } }
-    assert_redirected_to admins_categories_url
-  end
 
   test "ジャンル編集（失敗）" do
     get edit_admins_category_path(@category)
