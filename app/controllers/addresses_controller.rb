@@ -19,7 +19,7 @@ class AddressesController < ApplicationController
     if @address.save
        redirect_to member_addresses_path
     else
-       @addresses = Address.all
+       @addresses = Address.where(member_id: current_member.id)
        @member = Member.find(params[:member_id])
        render action: :index
     end

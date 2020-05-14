@@ -1,4 +1,5 @@
 class Admins::CategoriesController < ApplicationController
+  before_action :authenticate_admin!
   def index
     if params[:search].nil?
       @categories = Category.all
@@ -11,8 +12,13 @@ class Admins::CategoriesController < ApplicationController
   end
 
   def create
-    Category.create(category_params)
-    redirect_to admins_categories_url
+    @category = Category.new(category_params)
+    if @category.save
+      redirect_to admins_categories_url
+    else
+      @categories = Category.all
+      render :index
+    end
   end
 
   def edit
@@ -26,8 +32,10 @@ class Admins::CategoriesController < ApplicationController
         @category.products.each do |product|
           product.update(is_saling: false)
         end
+        redirect_to admins_categories_path
       end
     else
+      @categories = Category.all
       render :edit
     end
     
