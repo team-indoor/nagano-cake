@@ -15,10 +15,6 @@ RSpec.describe CartItem, type: :model do
       end
     end
     context "無効なカートアイテム" do
-      it "退会済みのユーザーのカート追加" do
-        @member.update(is_active: false)
-        expect(@cart_item).to_not be_valid
-      end
       it "個数を選択していない商品のカート追加" do
         @cart_item.update(amount: " ")
         expect(@cart_item).to_not be_valid
@@ -28,14 +24,6 @@ RSpec.describe CartItem, type: :model do
         @cart_item.save
         expect(@cart_item).to be_valid
         expect(dup_cart_item).to_not be_valid
-      end
-      it "販売停止中の商品の追加" do
-        @product.update(is_saling: false)
-        expect(@cart_item).to_not be_valid
-      end
-      it "カテゴリーが無効になっている商品の追加" do
-        @category.update(is_active: false)
-        expect(@cart_item).to_not be_valid
       end
     end
   end

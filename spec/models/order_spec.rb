@@ -18,14 +18,6 @@ RSpec.describe Order, type: :model do
     end
 
     context "無効な注文" do
-      it "退会済みのユーザーの注文" do
-        @member.update(is_active: false)
-        expect(@order).to_not be_valid
-      end
-      it "カートに商品がない場合の注文" do
-        @cart_item = nil
-        expect(@order).to_not be_valid
-      end
       it "合計金額がない" do
         @order.update(total_price: " ")
         expect(@order).to_not be_valid
