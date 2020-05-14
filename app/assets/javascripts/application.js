@@ -11,8 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function showWindowSize() {
+  $('#body').css("margin-top", $("header").height() + 50);
+}
+
+$(window).resize(showWindowSize);

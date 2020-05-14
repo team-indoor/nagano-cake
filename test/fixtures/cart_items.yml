@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  member: one
-  product: one
-  amount: 1
+cart_item:
+  member: "member1"
+  product: "product1"
+  amount: 2
 
-two:
-  member: two
-  product: two
-  amount: 1
+cart_item2:
+  member: "member1"
+  product: "product2"
+  amount: 4

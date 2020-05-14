@@ -1,13 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  member: one
-  reciever: MyString
-  postal_code: 1
-  address: MyString
-
-two:
-  member: two
-  reciever: MyString
-  postal_code: 1
-  address: MyString
+address:
+  member: "member1"
+  reciever: "reciever"
+  postal_code: "1234567"
+  address: "tokyo"

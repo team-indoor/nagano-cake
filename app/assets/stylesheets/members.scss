@@ -1,3 +1,53 @@
 // Place all the styles related to the members controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sign_in_page,.sign_up_page{
+  margin-top: 80px;
+}
+
+.sign_up,.sign_in{
+  margin-bottom: 30px;
+}
+
+//my-page
+.mypage-title {
+  margin-left: 50px;
+}
+
+.main-title {
+  font-size: 18px;
+  margin: 20px 10px;
+  text-align: left;
+  font-weight: bold;
+  display: inline-block;
+}
+
+//adresses_index
+.table-borderless {
+  border-color: white;
+}
+.button {
+  margin: 0px 10px 20px 650px;
+}
+//members_edit
+.form-group {
+  margin-top: 20px;
+}
+.error_explanation {
+    color: red;
+}
+.error_explanation ul {
+  list-style: none;
+}
+.button-box {
+  margin-left: 200px;
+}
+
+//members_show
+.table-bordered {
+  tr th {
+  width: 200px;
+  background-color: #f5f5f5;
+  }
+}

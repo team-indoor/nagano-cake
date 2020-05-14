@@ -1,0 +1,19 @@
+<form class="form-inline search-form" name="search" action="<%= params[:controller].split("/")[1] %>">
+  <% if params[:controller].split("/")[1] == "members" && params[:action] == "index" %>
+    <input type="search" name="search" placeholder="苗字で検索..." class="form-control">
+  <% elsif params[:controller].split("/")[1] == "products" && params[:action] == "index" %>
+    <input type="search" name="search" placeholder="商品名で検索..." class="form-control">
+  <% elsif params[:controller].split("/")[1] == "orders" && params[:action] == "index" %>
+    <select name="search" class="form-control" style="width:172px">
+      <option value="<%= Date.today %>">本日</option>
+      <% for num in 1..30 do %>
+        <option value="<%= (Date.today - num) %>"><%= (Date.today - num).strftime("%Y/%m/%d") %></option>
+      <% end %>
+    </select>
+  <% elsif params[:controller].split("/")[1] == "categories" && params[:action] == "index" %>
+    <input type="search" name="search" placeholder="ジャンル名で検索..." class="form-control">
+  <% end %>
+  <% if (params[:controller].split("/")[1] == "members" && params[:action] == "index") || (params[:controller].split("/")[1] == "products" && params[:action] == "index") || (params[:controller].split("/")[1] == "orders" && params[:action] == "index") || (params[:controller].split("/")[1] == "categories" && params[:action] == "index") %>
+    <button type="submit" class="btn btn-primary btn-s">検索</button>
+  <% end %>
+</form>

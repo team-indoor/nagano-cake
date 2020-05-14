@@ -1,3 +1,82 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//order_index
+.table-bordered {
+  thead tr th {
+	height: 40px;
+  vertical-align: middle;
+  }
+  tbody tr td {
+  vertical-align: middle;
+  }
+}
+p.w-break{
+  word-wrap: break-all;
+}
+.table-cell {
+  display: table-cell;    
+  vertical-align: middle;
+  text-align: center;
+}
+
+//new
+.order-title{
+  margin-left: 50px;
+}
+
+.o-sub-title{
+  font-weight: bold;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+
+.link {
+  margin: 10px;
+	text-align: center;
+}
+
+//order-show
+.table-bordered {
+	float: left;
+  tr th {
+  background-color:#f5f5f5;
+  width: 150px;
+  }
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.order-radio{
+  margin-left: 40px;
+}
+
+.order-sub-radio{
+  margin-left: 20px;
+}
+
+.order-form{
+  padding:5px 0 5px 20px;
+}
+
+//confirmation
+.con-sub{
+  display:inline;
+  font-size: 16px;
+  margin-left:20px;
+}
+
+.con-address{
+  font-size: 16px;
+}
+
+.thanks-message{
+  font-size:30px;
+  text-align: center;
+}

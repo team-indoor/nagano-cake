@@ -1,2 +1,35 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="row margin-30">
+  <div class="col-xs-2">
+    <%= render "layouts/category_search" %>
+  </div>
+  <div class="col-xs-10">
+    <h2 class="index-title"><%= display_name(params["category_id"]) %>(<%= display_count(params["category_id"]) %>件)</h2>
+    <% if @products.blank? %>
+      <div class="no_product">
+        <p>検索に該当する商品はありません</p>
+      </div>
+    <% else %>
+      <div class="product-index margin-30">
+        <% @products.each do |product| %>
+          <div class="product-index-box">
+            <div class="product-index-image">
+              <%= link_to (attachment_image_tag product, :image, :fill, 150, 150, format: 'jpg', fallback: "no-image.jpg", size:'150x150'), product_path(product) %>
+            </div>
+            <div class="product-index-info">
+              <p><%= link_to product.name, product_path(product) %></p>
+              <p>
+                ¥<%= tax_included_price(product.price) %><span> (税込)</span>
+                <% unless product.is_saling? %>
+                  <span style="color:red">売り切れ中</span>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="paginate-tag">
+      <%= paginate @products %>
+    </div>
+  </div>
+</div>

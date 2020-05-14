@@ -1,17 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  category: one
-  name: MyString
-  price: 1
-  image_id: MyString
-  introduction: MyText
-  is_saling: false
+product1:
+  category: "category"
+  name: "ケーキ"
+  price: 300
+  introduction: "説明"
+  is_saling: true
 
-two:
-  category: two
-  name: MyString
-  price: 1
-  image_id: MyString
-  introduction: MyText
-  is_saling: false
+product2:
+  category: "category"
+  name: "焼き菓子"
+  price: 200
+  introduction: "説明"
+  is_saling: true
+
+product3:
+  category: "category"
+  name: "プリン"
+  price: 100
+  introduction: "説明"
+  is_saling: true

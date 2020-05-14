@@ -1,2 +1,114 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<%= javascript_include_tag "application" %>
+<script>
+//直リンク禁止//
+  var refinfo=document.referrer;
+  if (refinfo){
+  }else{
+    location.href = "http://localhost:3000/"
+  }
+//直リンク禁止//
+</script>
+
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+
+    <div class="order-title">
+      <mark style="font-size: 20px;">注文情報入力</mark>
+    </div>
+
+    <%= form_tag(confirmation_member_orders_path,name:"form", method: :post) do %>
+    <%= hidden_field_tag :postage, 800 %>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------->
+    <h2 class="o-sub-title">支払方法</h2>
+    <div class="order-radio">
+      <input type="radio" name="payment" id="payment_0" value="0" checked="checked">
+      <p style="display:inline; font-size:18px;">クレジットカード</p><br>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------->
+      <input type="radio" name="payment" id="payment_1" value="1">
+      <p style="display:inline; font-size:18px;">銀行振込</p>
+    </div>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------->
+    <h2 class="o-sub-title">お届け先</h2>
+    <div class="order-radio">
+      <input type="radio" name="address" id="address_0" value="0" checked="checked" onclick="active()">
+      <p style="display:inline; font-size:18px;">ご自身の住所</p>
+      <p class="order-sub-radio" style="font-size:18px;">
+        <%= "#{current_member.postal_code} #{current_member.address}" %><br>
+        <%= "#{current_member.last_name} #{current_member.first_name}" %>
+      </p><br>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------->
+      <% if @address.blank? %>
+        <input type="radio" name="address" id="address_1" value="1" onclick="active()" disabled>
+        <p style="display:inline; font-size:18px;">登録済住所から選択</p><br>
+        <p class="order-sub-radio">
+          <select name="address_id" id="address_id" onclick="active()" class="form-control" style="font-size:18px;" disabled>
+              <option></option>
+          </select>
+        </p><br>
+      <% else %>
+        <input type="radio" name="address" id="address_1" value="1" onclick="active()">
+        <p style="display:inline; font-size:18px;">登録済住所から選択</p><br>
+        <p class="order-sub-radio">
+          <select name="address_id" id="address_id" onclick="active()" class="form-control" style="font-size:18px;" disabled>
+            <% @address.each do |address| %>
+              <option value="<%=address.id%>"><%= address.address_all %></option>
+            <% end %>
+          </select>
+        </p><br>
+      <% end %>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------->
+      <input type="radio" name="address" id="address_2" value="2" onclick="active()">
+      <p style="display:inline; font-size:18px;">新しいお届け先</p>
+      <div class="order-sub-radio">
+        <table>
+          <tr>
+            <td>郵便番号(ハイフンなし)</td>
+            <td class="order-form"><input type="text" name="new_postal_code" id="new_postal_code" onclick="active()" class="form-control" style="font-size:18px;" disabled></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td class="order-form"><input type="text" name="new_address" id="new_address" onclick="active()" class="form-control" style="font-size:18px; width:300%;" disabled></td>
+          </tr>
+          <tr>
+            <td>宛名</td>
+            <td class="order-form"><input type="text" name="new_reciever" id="new_reciever" onclick="active()" class="form-control" style="font-size:18px;" disabled></td>
+          </tr>
+        </table>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------->
+      </div>
+    </div>
+    <div class="actions" style="text-align: center; margin-top:20px;">
+      <%= submit_tag "確認画面へ進む", class: "btn btn-primary", id: "s-btn" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  window.onpageshow = function() {
+    document.form["payment_0"].checked = true;
+    document.form["address_0"].checked = true;
+  }
+
+  function active() {
+    if (document.form["address"][0].checked) {
+      document.form["address"].disabled = false;
+    } else {
+      document.form["address"].disabled = true;
+    }
+    if (document.form["address"][1].checked) {
+      document.form["address_id"].disabled = false;
+    } else {
+      document.form["address_id"].disabled = true;
+    }
+    if (document.form["address"][2].checked) {
+      document.form["new_postal_code"].disabled = false;
+      document.form["new_address"].disabled = false;
+      document.form["new_reciever"].disabled = false;
+    } else {
+      document.form["new_postal_code"].disabled = true;
+      document.form["new_address"].disabled = true;
+      document.form["new_reciever"].disabled = true;
+    }
+  }
+</script>

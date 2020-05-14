@@ -1,2 +1,45 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="row">
+  <div class="col-xs-2">
+    <%= render "layouts/category_search" %>
+  </div>
+  <div class="col-xs-9">
+    <div class="mv-image">
+      <div class="description">
+        <p>
+          ようこそ、NaganoCakeへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-xs-10 col-xs-offset-2">
+    <h2 class="product-title">オススメ商品</h2><br>
+    <div class="p-index">
+      <% @products.first(4).shuffle.each do |product| %>
+        <div class="product-index-box">
+          <div class="product-index-image">
+            <%= link_to (attachment_image_tag product, :image, :fill, 150, 150, format: 'jpg', fallback: "no-image.jpg", size:'150x150'), product_path(product) %>
+          </div>
+          <div class="product-index-info">
+            <p><%= link_to product.name, product_path(product) %></p>
+            <p>
+              ¥<%= tax_included_price(product.price) %><span> (税込)</span>
+              <% unless product.is_saling? %>
+                <span style="color:red">売り切れ中</span>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="see-more">
+      <%= link_to "もっと見る>", products_path, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>

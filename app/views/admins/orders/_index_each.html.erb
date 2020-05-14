@@ -1,0 +1,20 @@
+<% orders.each do |order| %>
+  <tr>
+    <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), admins_order_path(order) %></td>
+    <td><%= "#{order.member.last_name} #{order.member.first_name}" %></td>
+    <td><%= all_amount_count(order.order_details) %></td>
+    <td>
+      <% if order.order_status == 0 %>
+        <%= "入金待ち" %>
+      <% elsif order.order_status == 1 %>
+        <%= "入金確認" %>
+      <% elsif order.order_status == 2 %>
+        <%= "製作中" %>
+      <% elsif order.order_status == 3 %>
+        <%= "発送準備中" %>
+      <% elsif order.order_status == 4 %>
+        <%= "発送済み" %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

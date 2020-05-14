@@ -1,2 +1,42 @@
-<h1>Addresses#edit</h1>
-<p>Find me in app/views/addresses/edit.html.erb</p>
+<%= javascript_include_tag "application" %>
+
+<div class="edit-title">
+  <mark style="font-size: 20px;">配送先編集</mark>
+</div>
+
+<div class="row">
+  <div class="col-xs-7">
+    <%= render "layouts/error_message", title: @address %>
+    <%= form_for @address, :url => {:action => :update} do |f| %>
+
+    <table border="0">
+      <tr>
+        <th class="form">郵便番号（ハイフンなし）</th>
+        <td>
+          <%= f.text_field :postal_code, autocomplete: "postal-code", class: "form-control" %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="form">住所</th>
+        <td>
+          <%= f.text_field :address, :size=>"60", autocomplete: "address", class: "form-control" %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="form">宛名</th>
+        <td>
+          <%= f.text_field :reciever, autocomplete: "reciever", class: "form-control" %>
+        </td>
+      </tr>
+    </table>
+
+    <div class="button">
+      <%= f.submit("編集する",class: 'btn btn-primary', style: 'margin-top: 10px') %>
+    </div>
+
+    <% end %>
+
+  </div>
+</div>

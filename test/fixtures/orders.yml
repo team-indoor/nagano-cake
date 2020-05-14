@@ -1,21 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  member: one
-  total_price: 1
-  postage: 1
+order:
+  member: "member1"
+  total_price: 100
+  postage: 800
   payment: 1
-  reciever: MyString
-  postal_code: MyString
-  address: MyString
-  order_status: 1
+  reciever: "reciever"
+  postal_code: "1234567"
+  address: "tokyo"
+  order_status: 0
 
-two:
-  member: two
-  total_price: 1
-  postage: 1
-  payment: 1
-  reciever: MyString
-  postal_code: MyString
-  address: MyString
-  order_status: 1

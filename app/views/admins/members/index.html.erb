@@ -1,2 +1,44 @@
-<h1>Admins::Members#index</h1>
-<p>Find me in app/views/admins/members/index.html.erb</p>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+
+    <div class="mypage-title" style="margin-left: 5%;">
+	  <mark style="font-size: 20px;">会員一覧</mark>
+	</div>
+
+	<table class="table table-inverse margin-30">
+	  <% if @members.any? %>
+	    <thead>
+	      <tr class="active">
+		    <th style="width:10%">会員ID</th>
+		    <th style="width:30%">氏名</th>
+		    <th style="width:30%">メールアドレス</th>
+		    <th style="width:30%">ステータス</th>
+		  </tr>
+	    </thead>
+	  <% @members.each do |member| %>
+	    <tbody>
+		  <tr>
+		    <td><%= member.id %></td>
+			<td><%=link_to "#{member.last_name} #{member.first_name}", admins_member_path(member.id) %></td>
+			<td><%= member.email %></td>
+			<td>
+	          <% if member.is_active == true %>
+		        <p>有効</p>
+		      <% else %>
+		        <p>退会済</p>
+		      <% end %>
+			</td>
+		  </tr>
+		</tbody>
+	  <% end %>
+	  <% else %>
+	    <p>該当する会員は見つかりませんでした</p>
+	  <% end %>
+	</table>
+	
+    <div id="page">
+      <%= paginate @members, class: "paginate" %>
+    </div>
+
+  </div>
+</div>

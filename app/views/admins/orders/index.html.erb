@@ -1,2 +1,36 @@
-<h1>Admins::Orders#index</h1>
-<p>Find me in app/views/admins/orders/index.html.erb</p>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+
+    <div class="mypage-title" style="margin-left: 5%;">
+      <mark style="font-size: 20px;">注文履歴一覧</mark>
+    </div>
+
+    <table class="table table-inverse margin-30">
+      <thead>
+        <tr class="active">
+          <th style="width:15%">購入日時</th>
+          <th style="width:10%">購入者</th>
+          <th style="width:10%">注文個数</th>
+          <th style="width:10%">注文ステータス</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if params[:name].nil? %>
+          <%= render 'admins/orders/index_each', orders: @orders %>
+        <% elsif params[:name] == "today" %>
+          <%= render 'admins/orders/index_each', orders: @orders_home %>
+        <% elsif params[:name] == "member" %>
+          <%= render 'admins/orders/index_each', orders: @orders_member %>
+        <% end %>
+      </tbody>
+    </table>
+    <% if params[:name].nil? %>
+      <div class="paginate-tag"><%= paginate @orders %></div>
+    <% elsif params[:name] == "today" %>
+      <div class="paginate-tag"><%= paginate @orders_home %></div>
+    <% elsif params[:name] == "member" %>
+      <div class="paginate-tag"><%= paginate @orders_member %></div>
+    <% end %>
+  </div>
+</div>

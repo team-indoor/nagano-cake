@@ -1,2 +1,16 @@
-<h1>Orders#fixed</h1>
-<p>Find me in app/views/orders/fixed.html.erb</p>
+<script>
+//直リンク禁止//
+  var refinfo=document.referrer;
+  if (refinfo){
+  }else{
+    location.href = "http://localhost:3000/"
+  }
+//直リンク禁止//
+</script>
+
+<div style="padding:200px 0; text-align: center;">
+  <h2 style="font-size:30px;">ご購入ありがとうございました！</h2>
+
+  <%= link_to "商品一覧に戻る", products_path, class: "btn btn-primary btn-lg", style: "margin-top:100px" %>
+
+</div>
